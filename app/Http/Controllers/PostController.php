@@ -42,9 +42,9 @@ class PostController extends Controller
         ]);
 
         if($request->file('image')){
-            $validate['image']=$request->file('image')->storePublicly('post-image');
+            $validate['image']=$request->file('image')->storePublicly('postingan');
         }else{
-            $validate['image']= 'post-image/example.webp';
+            $validate['image']= 'postingan/default.jpg';
         }
 
         Post::create($validate);
