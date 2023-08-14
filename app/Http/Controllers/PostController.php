@@ -13,7 +13,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('dashboard.blog.post-index',[
+        return view('dashboard.post.post-index',[
             'title' =>  'Postingan',
             'angka' =>  '1',
             'posts' =>  Post::latest()->paginate(6)
@@ -25,7 +25,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('dashboard.blog.post-create',[
+        return view('dashboard.post.post-create',[
             'title'     =>  'Buat Postingan',
         ]);
     }

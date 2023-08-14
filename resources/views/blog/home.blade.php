@@ -94,7 +94,7 @@
       <div class="card mb-3 text-start p-3" style="box-shadow: 0 0 3px rgba(0, 0, 0, 0.13)">
         <div class="row g-0">
           <div class="col-md-4">
-            <img src="{{ 'storage/'.$post->image }}" class="img-fluid rounded-start" alt="..." width="300px">
+            <img src="{{ asset('storage/'.$post->image) }}" class="img-fluid rounded-start" alt="..." width="300px">
           </div>
           <div class="col-md-8">
             <div class="card-body">
