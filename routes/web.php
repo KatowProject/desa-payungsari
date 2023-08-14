@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 //Route Website Blog
-Route::get('/', [BlogController::class,'index']);
-Route::get('about', [BlogController::class,'about']);
-Route::get('pencarian', [BlogController::class,'pencarian']);
+Route::get('/', [BlogController::class,'index'])->middleware('guest');
+Route::get('about', [BlogController::class,'about'])->middleware('guest');
+Route::get('pencarian', [BlogController::class,'pencarian'])->middleware('guest');
 
 //Route Postingan Blog
-Route::get('informasi', [PostinganController::class,'index']);
-Route::get('postingan/{post:slug}',[PostinganController::class,'show']);
+Route::get('informasi', [PostinganController::class,'index'])->middleware('guest');
+Route::get('postingan/{post:slug}',[PostinganController::class,'show'])->middleware('guest');
 Route::get('add_berita',[PostinganController::class,'create'])->middleware('auth');
 Route::post('add_berita',[PostinganController::class,'store'])->middleware('auth');
 Route::get('edit/{post:slug}',[PostinganController::class,'edit'])->middleware('auth');
