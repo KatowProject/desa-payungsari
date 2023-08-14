@@ -27,6 +27,36 @@
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
   <script src="{{ asset('assets/dashboard/js/jquery.js') }}"></script>
+  
+  <style>
+      .form-search input {
+  box-shadow: none;
+  font-size: 20px;
+  border-radius: 5;
+  font-weight: 300;
+  text-align: center;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.form-search input:focus {
+  border-color: #4f61fc;
+  box-shadow: none;
+}
+
+.form-search #tombol-pencarian {
+  background: #10bb49;
+  border: 0;
+  padding: 10px 25px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+  margin-top: 1rem;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.form-search #tombol-pencarian:hover {
+  background: #5969f3;
+}
+  </style>
 </head>
 
 <body>
@@ -36,7 +66,7 @@
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto judul-logo">
-        <img src="{{ asset('assets/img/kabupaten-karawang.png') }}" class="gambar-logo " alt="">
+        <img src="{{ asset('assets/img/Kabupaten-Karawang.png') }}" class="gambar-logo " alt="">
         <div class="child-judul-logo">
           <p class="kab">KABUPATEN KARAWANG</p>
           <P class="des">DESA PAYUNGSARI</P>
