@@ -206,16 +206,7 @@ class PendudukController extends Controller
 
     public function pencarian_penduduk(Request $request)
     {
-
-        if($request->nama_lengkap != ""){
-            $penduduk = Penduduk::where('nama_lengkap', 'like', '%' . $request->nama_lengkap . '%');
-        }
-        if($request->nik != ""){
-            $penduduk = Penduduk::where('nik',$request->nik);
-        }
-        if($request->nomor_kk != ""){
-            $penduduk = Penduduk::where('nomor_kk',$request->nomor_kk);
-        }
+        
         if($request->dusun != ""){
             $penduduk = Penduduk::where('dusun',$request->dusun);
         }
@@ -224,6 +215,15 @@ class PendudukController extends Controller
         }
         if($request->no_rw != ""){
             $penduduk = Penduduk::where('no_rw',$request->no_rw);
+        }
+        if($request->nama_lengkap != ""){
+            $penduduk = Penduduk::where('nama_lengkap', 'like', '%' . $request->nama_lengkap . '%');
+        }
+        if($request->nik != ""){
+            $penduduk = Penduduk::where('nik',$request->nik);
+        }
+        if($request->nomor_kk != ""){
+            $penduduk = Penduduk::where('nomor_kk',$request->nomor_kk);
         }
         
         return view('dashboard.kependudukan.penduduk_hasil', [

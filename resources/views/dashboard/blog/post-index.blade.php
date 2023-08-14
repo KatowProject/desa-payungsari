@@ -1,5 +1,8 @@
 @extends('dashboard.layouts.template')
 
+
+@section('content')
+
 @if (Request::session()->has('post_destroy'))
 <script>
 Swal.fire({
@@ -12,7 +15,6 @@ Swal.fire({
 <?php Request::session()->forget('post_destroy'); ?>
 @endif
 
-@section('content')
 <div class="row">
   <div class="card p-0">
     <div class="col-md-12 pt-3 text-end">
@@ -44,7 +46,7 @@ Swal.fire({
                 <a class="dropdown-item" href="{{ url('edit/'.$post->slug) }}" ><i class="bi bi-pencil"></i> Edit</a>
               </li>
               <li>
-                <form action="{{ url('blog/'.$post->id) }}" method="POST">
+                <form action="{{ url('post/'.$post->id) }}" method="POST">
                   @method('delete')
                   @csrf
                   <button class="dropdown-item" type="submit" onclick="return confirm('Hapus Pegawai')"><i class="bi bi-trash"></i> Hapus</button>
