@@ -1,0 +1,117 @@
+/* MY CSS */
+.myform input,
+.myform select,
+.myform textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 17px;
+  border-radius: 0;
+  font-weight: 550;
+}
+
+.myform input:focus,
+.myform select:focus,
+.myform textarea:focus {
+  border-color: #4154f1;
+  box-shadow: none;
+}
+
+.myform input,
+.myform select,
+.myform option {
+  padding: 10px 10px;
+}
+
+.myform textarea {
+  padding: 12px 15px;
+}
+
+.myform #tombol-pencarian {
+  background: #1d2ec2;
+  border: 0;
+  padding: 12px 15px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.myform #tombol-pencarian:hover {
+  background: #5969f3;
+}
+
+#tombol-tambah {
+  background: #1b38df;
+  border: 0;
+  padding: 10px 15px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#tombol-tambah:hover {
+  background: #1f2d79;
+  border: 0;
+  padding: 10px 15px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+#tombol-kembali {
+  background: #d62121;
+  border: 0;
+  padding: 10px 15px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+#tombol-kembali:hover {
+  background: #ff0202;
+  border: 0;
+  padding: 10px 15px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  margin-left: 15px;
+}
+
+.button-back {
+  background: #f52b2b;
+  border: 0;
+  padding: 10px 20px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+.button-back:hover {
+  background: #ff0000;
+  border: 0;
+  padding: 10px 20px;
+  color: #ffffff;
+  transition: 0.4s;
+  border-radius: 4px;
+}
+
+.judul-form {
+  margin-left: 1.3rem;
+  font-size: 1.7rem;
+  padding: 0px 0px 0px 0px;
+  font-weight: 600;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.garis {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1rem;
+}
