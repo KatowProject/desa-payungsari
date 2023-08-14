@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -15,7 +16,7 @@ class PostController extends Controller
         return view('dashboard.blog.post-index',[
             'title' =>  'Postingan',
             'angka' =>  '1',
-            'posts' =>  Post::paginate(6)
+            'posts' =>  Post::latest()->paginate(6)
         ]);
     }
 
@@ -78,10 +79,11 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Post $post)
+    public function destroy(Request $request,Post $post)
     {
         Post::destroy($post->id);
-        request()->session()->put('post_destroy', 'berhasil');
+        Storage::delete($post->image);
+        $request->session()->put('post_destroy', 'berhasil');
         return redirect('post');
     }
 

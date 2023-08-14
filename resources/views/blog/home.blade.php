@@ -101,7 +101,7 @@
               <h5 class="card-title">{{ $post->title }}</h5>
               <p class="card-text">{{ $post->excerpt }}</p>
               <p class="card-text"><small class="text-body-secondary">Selasa, 9 Agustus 2023</small></p>
-              <a href="{{ url('berita/'.$post->slug) }}" class="btn btn-primary btn-sm text-end"> Baca Selengkapnya...</a>
+              <a href="{{ url('postingan/'.$post->slug) }}" class="btn btn-primary btn-sm text-end"> Baca Selengkapnya...</a>
             </div>
           </div>
         </div>

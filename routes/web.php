@@ -18,7 +18,7 @@ Route::get('pencarian', [BlogController::class,'pencarian']);
 
 //Route Postingan Blog
 Route::get('informasi', [PostinganController::class,'index']);
-Route::get('informasi_publik/{post:slug}',[PostinganController::class,'show']);
+Route::get('postingan/{post:slug}',[PostinganController::class,'show']);
 Route::get('add_berita',[PostinganController::class,'create'])->middleware('auth');
 Route::post('add_berita',[PostinganController::class,'store'])->middleware('auth');
 Route::get('edit/{post:slug}',[PostinganController::class,'edit'])->middleware('auth');

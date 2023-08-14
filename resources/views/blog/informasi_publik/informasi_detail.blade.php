@@ -14,7 +14,7 @@
       <article class="my-3 fs-5">
         {!! $post->body !!}
         <br>
-        <a href="{{ url('informasi_publik') }}" class="my-3">lihat berita lainnya...</a>
+        <a href="{{ url('pencarian') }}" class="my-3">lihat berita lainnya...</a>
       </article>
 
     </div>
