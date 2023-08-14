@@ -86,21 +86,12 @@
   <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
   </head>
   <body>
-    <div class="container" style="padding-left:70px;">
+    <div class="container mx-auto" style="">
       <div class="row">
         <div class="col-12 kopsurat text-center">
 
-          <img src="{{ asset('assets/dashboard/img/Karawang.png') }}" width="111px" id="logo">
-
-          {{-- <h2 class="header"><span style="30px">Pemerintah Daerah Kabupaten Karawang</span><br>Kecamatan Pedes <br> Desa Payungsari</h2> --}}
-          <strong style="font-size:25px;">Pemerintahan Daerah Kabupaten Karawang</strong><br>
-          <strong style="font-size:24px;">Kecamatan Pedes</strong><br>
-          <strong style="font-size:35px;">Desa Payungsari</strong>
-          <p style="text-align: center;">Jl Raya Sungaibuntu Desa Payungsari Kec.Pedes Kab.Karawang - Jawa Barat 41353<br>
-          Email : payungsarides@gmail.com</p>  
+          <img src="{{ asset('assets/img/header-kop-surat.png') }}" width="100%" id="logo">
         </div>
-        <div class="border-judul"></div>
-        <div class="border-judul-1"></div>
       </div>
       <h1 class="judulsurat">SURAT KETERANGAN USAHA/DAGANG</h1>
       <div class="border-surat"></div>
