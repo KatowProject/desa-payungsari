@@ -23,7 +23,7 @@ class PostFactory extends Factory
             'body'    => collect($this->faker->paragraphs(mt_rand(5,8)))
             ->map(fn($p) => "<p>$p</p>")
             ->implode(''),
-            'image'=> 'post-image/example.jpg',
+            'image'=> 'postingan/default.jpg',
         ];
     }
 }

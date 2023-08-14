@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -37,7 +38,6 @@ class PostController extends Controller
     {
         $validate = $request->validate([
             'title' =>  'required',
-            'excerpt' =>  'required',
             'body' =>  'required',
         ]);
 
@@ -46,6 +46,8 @@ class PostController extends Controller
         }else{
             $validate['image']= 'postingan/default.jpg';
         }
+        
+        $validate['excerpt']= Str::limit(strip_tags($request->body), 150, '...');
 
         Post::create($validate);
         $request->session()->put('postCreate','success');
@@ -57,7 +59,10 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        return view('dashboard.post.post-show',[
+            'title'     =>  'Lihat Postingan',
+            'post'      =>  $post
+        ]);
     }
 
     /**
@@ -65,7 +70,10 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('dashboard.post.post-edit',[
+            'title'     =>  'Edit Postingan',
+            'post'      =>  $post
+        ]);
     }
 
     /**
@@ -73,7 +81,22 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $validated = $request->validate([
+            'title' =>  'required',
+            'body' =>  'required',
+        ]);
+
+        if($request->file('image')){
+            Storage::delete($post->image);
+            $validated['image']=$request->file('image')->storePublicly('postingan');
+        }else{
+            $validated['image']= $post->image;
+        }
+        
+        $validated['excerpt']= Str::limit(strip_tags($request->body), 150, '...');
+
+        Post::where('id', $post->id)->update($validated);
+        return back()->with('postUpdate','success');
     }
 
     /**

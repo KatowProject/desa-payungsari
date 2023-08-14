@@ -43,7 +43,10 @@ Swal.fire({
               </button>
               <ul class="dropdown-menu">
               <li>
-                <a class="dropdown-item" href="{{ url('edit/'.$post->slug) }}" ><i class="bi bi-pencil"></i> Edit</a>
+                <a class="dropdown-item" href="{{ url('post/'.$post->id) }}" ><i class="bi bi-eye"></i> Show</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="{{ url('post/'.$post->id.'/edit') }}" ><i class="bi bi-pencil"></i> Edit</a>
               </li>
               <li>
                 <form action="{{ url('post/'.$post->id) }}" method="POST">

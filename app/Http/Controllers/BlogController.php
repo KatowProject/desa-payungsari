@@ -32,6 +32,7 @@ class BlogController extends Controller
 
         if(request('q')){
             $posts = Post::where('title','like','%'.request('q').'%')
+                    ->orWhere('excerpt','like','%'.request('q').'%')
                     ->orWhere('body','like','%'.request('q').'%');
         }
 
