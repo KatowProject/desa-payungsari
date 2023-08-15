@@ -58,13 +58,7 @@ class PostinganController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Post $post)
-    {
-        return view('blog.postingan.postingan-detail',[
-            'title' =>  'Detail Berita',
-            'post' =>  $post
-        ]);
-    }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -5,23 +5,22 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PendudukController;
-use App\Http\Controllers\PostinganController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SuratController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 //Route Website Blog
 Route::get('/', [BlogController::class,'index'])->middleware('guest');
-Route::get('about', [BlogController::class,'about'])->middleware('guest');
-Route::get('pencarian', [BlogController::class,'pencarian'])->middleware('guest');
+
 // Profile Desa
 Route::get('tentang-desa', [BlogController::class,'tentang_desa'])->middleware('guest');
 Route::get('perangkat-desa', [BlogController::class,'perangkat_desa'])->middleware('guest');
 Route::get('struktur-pemerintah-desa', [BlogController::class,'struktur_organisasi'])->middleware('guest');
 Route::get('lembaga-desa', [BlogController::class,'lembaga_desa'])->middleware('guest');
 
-// Informasi Publik
+// Postingan
+Route::get('pencarian', [BlogController::class,'pencarian'])->middleware('guest');
+Route::get('postingan/{post:slug}', [BlogController::class,'postingan_detail'])->middleware('guest');
 Route::get('berita-desa', [BlogController::class,'berita_desa'])->middleware('guest');
 Route::get('kegiatan-desa', [BlogController::class,'kegiatan_desa'])->middleware('guest');
 

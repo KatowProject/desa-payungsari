@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -36,6 +37,8 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        // $tanggal = Carbon::now()->formatLocalized("%A, %d %B %Y");
+        // dd($tanggal);
         $validate = $request->validate([
             'title' =>  'required',
             'body' =>  'required',
@@ -47,7 +50,8 @@ class PostController extends Controller
             $validate['image']= 'postingan/default.jpg';
         }
         
-        $validate['excerpt']= Str::limit(strip_tags($request->body), 150, '...');
+        $validate['excerpt']= Str::limit(strip_tags($request->body), 180, '...');
+        $validate['published_at']= date('Y-m-d');
 
         Post::create($validate);
         $request->session()->put('postCreate','success');
@@ -81,6 +85,7 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        // $tanggal = Carbon::now()->formatLocalized("%A, %d %B %Y");
         $validated = $request->validate([
             'title' =>  'required',
             'body' =>  'required',
@@ -93,7 +98,8 @@ class PostController extends Controller
             $validated['image']= $post->image;
         }
         
-        $validated['excerpt']= Str::limit(strip_tags($request->body), 150, '...');
+        $validated['excerpt']= Str::limit(strip_tags($request->body), 180, '...');
+        $validated['published_at']= date('Y-m-d');
 
         Post::where('id', $post->id)->update($validated);
         return back()->with('postUpdate','success');

@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Pegawai;
 use App\Models\Post;
-use Carbon\Carbon;
-use DateTime;
-use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -53,22 +50,6 @@ class BlogController extends Controller
     }
     
     // Informasi Publik
-    public function berita_desa()
-    {
-        
-        return view('blog.informasi-publik.berita-desa',[
-            'title' => 'Berita Desa Payungsari',
-        ]);
-    }
-    
-    public function kegiatan_desa()
-    {
-        
-        return view('blog.informasi-publik.kegiatan-desa',[
-            'title' => 'Kegiatan Desa Payungsari',
-        ]);
-    }
-
     public function pencarian()
     {
 
@@ -86,5 +67,30 @@ class BlogController extends Controller
 
         ]);
     }
+
+    public function postingan_detail(Post $post)
+    {
+        return view('blog.postingan.postingan-detail',[
+            'title' =>  'Detail Berita',
+            'post' =>  $post
+        ]);
+    }
+
+    public function berita_desa()
+    {
+        
+        return view('blog.postingan.berita-desa',[
+            'title' => 'Berita Desa Payungsari',
+        ]);
+    }
+    
+    public function kegiatan_desa()
+    {
+        
+        return view('blog.postingan.kegiatan-desa',[
+            'title' => 'Kegiatan Desa Payungsari',
+        ]);
+    }
+
 
 }
