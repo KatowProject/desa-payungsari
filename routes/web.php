@@ -15,13 +15,15 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', [BlogController::class,'index'])->middleware('guest');
 Route::get('about', [BlogController::class,'about'])->middleware('guest');
 Route::get('pencarian', [BlogController::class,'pencarian'])->middleware('guest');
+// Profile Desa
+Route::get('tentang-desa', [BlogController::class,'tentang_desa'])->middleware('guest');
+Route::get('perangkat-desa', [BlogController::class,'perangkat_desa'])->middleware('guest');
+Route::get('struktur-pemerintah-desa', [BlogController::class,'struktur_organisasi'])->middleware('guest');
+Route::get('lembaga-desa', [BlogController::class,'lembaga_desa'])->middleware('guest');
 
-//Route Postingan Blog
-Route::get('informasi', [PostinganController::class,'index'])->middleware('guest');
-Route::get('postingan/{post:slug}',[PostinganController::class,'show'])->middleware('guest');
-Route::get('add_berita',[PostinganController::class,'create'])->middleware('auth');
-Route::post('add_berita',[PostinganController::class,'store'])->middleware('auth');
-Route::get('edit/{post:slug}',[PostinganController::class,'edit'])->middleware('auth');
+// Informasi Publik
+Route::get('berita-desa', [BlogController::class,'berita_desa'])->middleware('guest');
+Route::get('kegiatan-desa', [BlogController::class,'kegiatan_desa'])->middleware('guest');
 
 //Route Postingan Admin
 Route::resource('post',PostController::class)->middleware('auth');

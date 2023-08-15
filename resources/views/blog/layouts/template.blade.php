@@ -8,10 +8,6 @@
   <title>{{ $title }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-  <meta property="og:title" content="The Rock" />
-  <meta property="og:type" content="video.movie" />
-  <meta property="og:url" content="https://www.imdb.com/title/tt0117500/" />
-  <meta property="og:image" content="https://ia.media-imdb.com/images/rock.jpg" />
 
   <!-- Favicons -->
   <link href="{{ asset('favicon.ico') }}" rel="icon">
@@ -30,6 +26,7 @@
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
+  <link href="{{ asset('assets/dashboard/vendor/DataTables/datatables.min.css') }}" rel="stylesheet"/>
   <script src="{{ asset('assets/dashboard/js/jquery.js') }}"></script>
   
   <style>
@@ -82,20 +79,29 @@
         <ul>
           <li><a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="{{ url('/') }}">Home</a></li>
 
-          <li><a class="nav-link {{ Request::is('pencarian') ? 'active' : '' }}" href="{{ url('pencarian') }}">Informasi Publik</a></li>
-          
-          <li><a class="nav-link {{ Request::is('about') ? 'active' : '' }}" href="{{ url('about') }}">Tentang Desa</a></li>
-
-          <li class="dropdown"><a href="#"><span>Layanan Publik</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown"><a href="#"><span>Profile Desa</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Pemerintahan</a></li>
-              <li><a href="#">Kesehatan</a></li>
-              <li><a href="#">Kependudukan</a></li>
-              <li><a href="#">Pengaduan</a></li>
+              <li><a class="{{ Request::is('tentang-desa') ? 'active' : '' }}" href="{{ url('tentang-desa') }}">Tentang Desa</a></li>
+              <li><a class="{{ Request::is('perangkat-desa') ? 'active' : '' }}" href="{{ url('perangkat-desa') }}">Perangkat Desa</a></li>
+              <li><a class="{{ Request::is('struktur-pemerintah-desa') ? 'active' : '' }}" href="{{ url('struktur-pemerintah-desa') }}">Struktur Perangkat Desa</a></li>
+              <li><a class="{{ Request::is('lembaga-desa') ? 'active' : '' }}" href="{{ url('lembaga-desa') }}">Lembaga Desa</a></li>
             </ul>
           </li>
 
-          <li><a class="nav-link scrollto" href="#">Kontak Kami</a></li>
+          <li class="dropdown"><a href="#"><span>Informasi Publik</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a class="{{ Request::is('berita-desa') ? 'active' : '' }}" href="{{ url('berita-desa') }}">Berita Desa</a></li>
+              <li><a class="{{ Request::is('kegiatan-desa') ? 'active' : '' }}" href="{{ url('kegiatan-desa') }}">Kegiatan Desa</a></li>
+              <li><a class="{{ Request::is('pencarian') ? 'active' : '' }}" href="{{ url('pencarian') }}">Portal Payungsari</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown"><a href="#"><span>Layanan Publik</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a class="{{ Request::is('pengaduan') ? 'active' : '' }}" href="{{ url('pengaduan') }}">Pengaduan Masyarakat</a></li>
+            </ul>
+          </li>
+
           <li><a class="getstarted scrollto" href="{{ url('dashboard') }}">Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -129,6 +135,12 @@
   <script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/dashboard/vendor/DataTables/datatables.min.js') }}"></script>
+  <script>
+    $(document).ready( function () {
+    $('#mytable').DataTable();
+    } );
+  </script>
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
