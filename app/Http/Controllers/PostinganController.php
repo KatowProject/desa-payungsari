@@ -21,7 +21,7 @@ class PostinganController extends Controller
                     ->orWhere('body','like','%'.request('key').'%');
         }
 
-        return view('blog.informasi_publik.index',[
+        return view('blog.postingan.index',[
             'title' =>  'Desa Payungsari',
             'posts' =>  $post->paginate(5)
         ]);
@@ -60,7 +60,7 @@ class PostinganController extends Controller
      */
     public function show(Post $post)
     {
-        return view('blog.informasi_publik.informasi_detail',[
+        return view('blog.postingan.postingan-detail',[
             'title' =>  'Detail Berita',
             'post' =>  $post
         ]);
