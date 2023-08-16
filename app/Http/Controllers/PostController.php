@@ -18,7 +18,7 @@ class PostController extends Controller
         return view('dashboard.post.post-index',[
             'title' =>  'Postingan',
             'angka' =>  '1',
-            'posts' =>  Post::latest()->paginate(6)
+            'posts' =>  Post::latest()->get()
         ]);
     }
 
