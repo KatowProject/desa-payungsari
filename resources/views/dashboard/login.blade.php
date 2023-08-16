@@ -83,7 +83,7 @@
                         @enderror
                       </div>
                       <div class="form-floating">
-                        <input type="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword" name="password" placeholder="Password">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword" name="password" placeholder="Password">
                         <label for="floatingPassword">Password</label>
                         @error('password')
                         <div class="invalid-feedback">
@@ -136,6 +136,14 @@
         $('#formlogin').submit()
       });
     });
+  </script>
+
+  <script>
+    $(document).ready(function(){
+    $("#showpassword").click(function(){
+    $("#password").attr("type", "text");
+  });
+});
   </script>
 
 </body>

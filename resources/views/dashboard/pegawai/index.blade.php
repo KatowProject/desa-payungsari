@@ -54,7 +54,7 @@ Swal.fire({
                     <form action="{{url('pegawai/'.$p->id)}}" method="POST">
                     @method('delete')
                     @csrf
-                        <button class="dropdown-item" type="submit" onclick="return confirm('Hapus Pegawai')"><i class="bi bi-trash"></i> Hapus</button>
+                        <button class="dropdown-item delete-confirm"><i class="bi bi-trash"></i> Hapus</button>
                     </form>
                 </li>
               </ul>
@@ -66,5 +66,25 @@ Swal.fire({
     </table>
   </div>
 </div>
+
+<script>
+  $('.delete-confirm').click(function (e) { 
+    e.preventDefault();
+    let form = $(this).closest('form');
+    Swal.fire({
+    title: 'Hapus Pegawai?',
+    text: "Pegawai akan di hapus permanen!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+    if (result.isConfirmed) {
+        form.submit();
+    }
+  })
+    });
+  </script>
 
 @endsection

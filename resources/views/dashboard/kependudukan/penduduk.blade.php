@@ -1,6 +1,21 @@
 @extends('dashboard.layouts.template')
 
 @section('content')
+<style>
+  @media (max-width:450px){
+    .add-desktop {
+      display: none
+    }
+    .card-body {
+      margin-top: 2rem
+    }
+  }
+  @media (min-width:450px){
+    .add-mobile {
+      display: none
+    }
+  }
+</style>
 
 @if (Request::session()->has('penduduk_destroy'))
 <script>
@@ -15,11 +30,13 @@ Swal.fire({
 @endif
 
 <div class="card">
-  <div class="row mt-4 mb-2">
+  <div class="add-mobile pt-3 text-center">
+  <a href="{{ url('penduduk/create') }}" class="btn btn-primary"><i class="bi bi-person-plus-fill"></i> Tambah Penduduk</a>
+  </div>
+  <div class="row mt-4 mb-2 border-bottom add-desktop">
     <div class="col-8"><h4 class="judul-form">Kependudukan Desa Payungsari</h4></div>
     <div class="col-4 text-end"><a href="{{ url('penduduk/create') }}" id="tombol-tambah"><i class="bi bi-person-plus-fill"></i> Tambah Penduduk</a></div>
   </div>
-  <hr class="garis">
   <div class="card-body">
     <form action="{{ url('pencarian_penduduk') }}" method="POST" class="myform">
       @csrf
@@ -113,6 +130,8 @@ Swal.fire({
       </form>
     </div>
     </div>
+
+    <p style="color: red">Note : Cari Penduduk dengan 1 Kata Kunci Pencarian</p>
 
 {{-- Script Form Pencarian Penduduk --}}
 <script>

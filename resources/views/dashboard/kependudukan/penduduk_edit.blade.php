@@ -21,7 +21,7 @@ Swal.fire({
     <form action="{{ url('penduduk/'.$penduduk->id) }}" method="POST">
     @method('delete')
     @csrf
-      <button type="submit" onclick="return confirm('Konfirmasi Untuk Menghapus Penduduk')" class="btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+      <button class="btn btn-danger delete-confirm"><i class="bi bi-trash-fill"></i></button>
     </form>
     </div>
   </div>
@@ -328,7 +328,25 @@ Swal.fire({
     </div>
   </div>
 </div>
-
+<script>
+  $('.delete-confirm').click(function (e) { 
+    e.preventDefault();
+    let form = $(this).closest('form');
+    Swal.fire({
+    title: 'Hapus Penduduk?',
+    text: "Penduduk akan di hapus permanen!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+    if (result.isConfirmed) {
+        form.submit();
+    }
+  })
+    });
+  </script>
 <script>
   $('#tombol-pencarian').click(function (e) { 
     e.preventDefault();

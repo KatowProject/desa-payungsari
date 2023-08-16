@@ -1,6 +1,13 @@
 @extends('dashboard.layouts.template')
 
 @section('content')
+<style>
+  @media (max-width:450px){
+    .img-desktop {
+      display: none
+    }
+  }
+</style>
 
 @if (Request::session()->has('penduduk_create'))
 <script>
@@ -24,7 +31,7 @@ Swal.fire({
     <form action="{{ url('penduduk') }}" method="POST" enctype="multipart/form-data" class="myform" id="form_penduduk">
       @csrf
       <div class="row">
-        <div class="col-2">
+        <div class="col-2 img-desktop">
           <input type="file" name="photo" style="position: absolute; opacity:0; width:150px; height:210px; cursor:pointer;">
           <img src="{{ asset('assets/dashboard/img/user.png') }}" alt="" width="150px" height="100%" border="1">
         </div>
