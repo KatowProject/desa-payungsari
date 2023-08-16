@@ -21,9 +21,8 @@ Swal.fire({
       <a href="{{ url('post/create') }}" class="btn btn-primary mx-3"><i class="bi bi-plus-square-dotted"></i> Tambah Postingan</a>
     </div>
     <div class="table-responsive px-2 py-2">
-      <table class="table" style="vertical-align: middle">
+      <table class="table" style="vertical-align: middle" id="mytable">
     <thead style="text-align: center">
-      <th>#</th>
       <th>Gambar Postingan</th>
       <th>Judul postingan</th>
       <th>isi Ringkas</th>
@@ -32,7 +31,6 @@ Swal.fire({
     <tbody>
       @foreach ($posts as $post)
         <tr>
-          <td>{{ $angka++ }}</td>
           <td><img src="{{ asset('storage/'.$post->image) }}" alt="" width="200"></td>
           <td>{{ $post->title }}</td>
           <td>{{ $post->excerpt }}</td>

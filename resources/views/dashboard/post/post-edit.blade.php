@@ -37,7 +37,7 @@ Swal.fire({
       </div>
       <div class="mb-3">
         <label for="image" class="form-label">Gambar Postingan</label>
-        <input type="file" class="form-control @error('body') is-invalid @enderror" id="image" name="image">
+        <input type="file" class="form-control" id="image" name="image">
       </div>
       <div class="mb-3">
         <label for="body" class="form-label">Isi Postingan</label>
