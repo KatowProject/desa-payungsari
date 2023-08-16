@@ -94,13 +94,13 @@
       <div class="card mb-2 text-start p-1" style="box-shadow: 0 0 3px rgba(0, 0, 0, 0.13)">
         <div class="row g-0 p-0">
           <div class="col-md-4">
-            <img src="{{ asset('storage/'.$post->image) }}" class="img-fluid rounded-start" alt="..." width="300px">
+            <img src="{{ asset('storage/'.$post->image) }}" class="img-fluid rounded-start" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body p-3 m-0">
               <h5 class="card-title p-0 mb-0">{{ $post->title }}</h5>
-              <small class="text-body-secondary p-0">Published {{ $post->created_at->diffForHumans()}}</small>
-              <p class="card-text mt-1">{{ $post->excerpt }} <a style="color: blue" href="{{ url('postingan/'.$post->slug) }}">selengkapnya</a></p>
+              <small class="text-body-secondary p-0">{{ $post->created_at->diffForHumans()}}</small>
+              <p class="card-text mt-1">{{ $post->excerpt }} <a style="color: rgb(84, 84, 231)" href="{{ url('postingan/'.$post->slug) }}">selengkapnya</a></p>
               {{-- <a href="{{ url('postingan/'.$post->slug) }}" class="btn btn-primary btn-sm text-end"> Baca Selengkapnya</a> --}}
             </div>
           </div>
@@ -109,7 +109,7 @@
       
       @endforeach
       <div class="text-center my-4">
-        <a href="{{ url('pencarian') }}" class="btn btn-success btn-sm"> Lihat Semua Berita</a>
+        <a href="{{ url('berita-desa') }}" class="btn btn-success btn-sm"> Lihat Semua Berita</a>
       </div>
     </div>
 

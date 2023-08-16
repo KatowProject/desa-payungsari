@@ -38,9 +38,29 @@ Swal.fire({
         </div>
 
         <div class="row mb-3">
+          <label for="pendidikan" class="col-sm-2 col-form-label">Pendidikan</label>
+          <div class="col-sm-10">
+            <select class="form-select" aria-label="Default select example" name="pendidikan">
+              <option selected>Pilih Pendidikan</option>
+              <option>TIDAK/BELUM SEKOLAH</option>
+              <option>BELUM TAMAT SD/SEDERAJAT</option>
+              <option>TAMAT SD/SEDERAJAT</option>
+              <option>SLTP/SEDERAJAT</option>
+              <option>SLTA/SEDERAJAT</option>
+              <option>DIPLOMA I</option>
+              <option>DIPLOMA II</option>
+              <option>DIPLOMA III</option>
+              <option>DIPLOMA IV/STRATA I</option>
+              <option>DIPLOMA IV/STRATA II</option>
+              <option>DIPLOMA IV/STRATA III</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row mb-3">
           <label for="photo_pegawai" class="col-sm-2 col-form-label">Photo Pegawai</label>
           <div class="col-sm-10">
-              <input class="form-control" type="file" id="photo_pegawai">
+              <input class="form-control" type="file" name="photo">
             </div>
           </div>
 

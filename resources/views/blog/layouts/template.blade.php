@@ -27,6 +27,8 @@
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
   <link href="{{ asset('assets/dashboard/vendor/DataTables/datatables.min.css') }}" rel="stylesheet"/>
+
+  <script src="{{ asset('assets/dashboard/vendor/sweetalert2/sweetalert2.all.min.js') }}"></script>
   <script src="{{ asset('assets/dashboard/js/jquery.js') }}"></script>
   
   <style>
@@ -98,7 +100,8 @@
 
           <li class="dropdown"><a href="#"><span>Layanan Publik</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a class="{{ Request::is('pengaduan') ? 'active' : '' }}" href="{{ url('pengaduan') }}">Pengaduan Masyarakat</a></li>
+              <li><a id="pelayanan-online" class="{{ Request::is('') ? 'active' : '' }}" href="{{ url('#') }}">Pelayanan Online</a></li>
+              <li><a id="pengaduan-masyarakat" class="{{ Request::is('') ? 'active' : '' }}" href="{{ url('#') }}">Pengaduan Masyarakat</a></li>
             </ul>
           </li>
 
@@ -144,6 +147,26 @@
 
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
+  <script>
+    $(document).ready(function () {
+      $('#pelayanan-online').click(function (e) { 
+        e.preventDefault();
+        Swal.fire(
+        'Pelayanan Online',
+        'Fitur Belum Tersedia untuk saat ini',
+        'question'
+      )
+      });
+      $('#pengaduan-masyarakat').click(function (e) { 
+        e.preventDefault();
+        Swal.fire(
+        'Pengaduan Masyarakat',
+        'Fitur Belum Tersedia untuk saat ini',
+        'question'
+      )
+      });
+    });
+  </script>
 
 </body>
 

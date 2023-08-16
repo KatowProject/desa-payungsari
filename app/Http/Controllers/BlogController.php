@@ -69,18 +69,21 @@ class BlogController extends Controller
     }
 
     public function postingan_detail(Post $post)
-    {
+    {   
+        $posts = Post::latest();
         return view('blog.postingan.postingan-detail',[
             'title' =>  'Detail Berita',
-            'post' =>  $post
+            'post' =>  $post,
+            'posts'=>  $posts->paginate(6),
         ]);
     }
 
     public function berita_desa()
     {
-        
+        $posts = Post::latest();
         return view('blog.postingan.berita-desa',[
             'title' => 'Berita Desa Payungsari',
+            'posts' => $posts->paginate(10)
         ]);
     }
     

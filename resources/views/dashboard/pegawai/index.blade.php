@@ -26,6 +26,7 @@ Swal.fire({
         <th>Photo</th>
         <th>Nama</th>
         <th>Jabatan</th>
+        <th>Pendidikan</th>
         <th>Features</th>
       </thead>
       <tbody>
@@ -36,6 +37,7 @@ Swal.fire({
           <td><img src="{{ asset('assets/dashboard/img/user.png') }}" alt="" width="100"></td>
           <td>{{ $p->nama_pegawai }}</td>
           <td>{{ $p->jabatan }}</td>
+          <td>{{ $p->pendidikan }}</td>
           <td>
             <div class="btn-group">
               <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">

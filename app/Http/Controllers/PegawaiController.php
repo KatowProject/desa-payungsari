@@ -36,12 +36,13 @@ class PegawaiController extends Controller
      */
     public function store(StorePegawaiRequest $request)
     {
-        $validasi = $request->validate([
+        $validated = $request->validate([
             'nama_pegawai'  => 'required',
             'jabatan'       => 'required',
+            'pendidikan'    => 'required',
         ]);
 
-        Pegawai::create($validasi);
+        Pegawai::create($validated);
         $request->session()->put('pegawai_create','berhasil');
         return back();
     }

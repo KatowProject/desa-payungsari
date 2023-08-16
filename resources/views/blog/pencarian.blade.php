@@ -40,7 +40,7 @@
                       <div class="col-md-8">
                         <div class="card-body">
                           <h5 class="card-title p-0 m-0">{{ $post->title }}</h5>
-                          <p class="card-text p-0 mb-1"><small class="text-body-secondary">Last updated {{ $post->created_at->diffForHumans()}}</small></p>
+                          <p class="card-text p-0 mb-1"><small class="text-body-secondary">diposting {{ $post->created_at->diffForHumans()}}</small></p>
                           <p class="card-text">{{ $post->excerpt }}</p>
                           <a href="{{ url('postingan/'.$post->slug) }}" class="btn btn-primary"><i class="bi bi-eye-fill"></i> Baca Lebih Lanjut</a>
                         </div>
@@ -69,9 +69,9 @@
       @else
       
       <div class="card px-lg-5 py-lg-5 text-center">
-        <div class="col-md-12">
+        <div class="col-md-12 py-4">
           <img src="{{ asset('assets/img/seo.png') }}" alt="" width="100px">
-          <h4 class="my-3">Temukan Semua Informasi Terkait Desa Payungsari</h4>
+          <h4 class="my-3">Portal Payungsari</h4>
           <p>Masukan kata kunci pencarian untuk menemukan informasi yang kamu butuhkan</p>
         </div>
       </div>
