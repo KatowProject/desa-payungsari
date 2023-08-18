@@ -27,12 +27,6 @@
   <script src="{{ asset('assets/dashboard/js/jquery.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-  <style>
-    .label {
-      display: none
-    }
-  </style>
-
 </head>
 
 <body>
@@ -79,33 +73,32 @@
                   <form class="row g-3 needs-validation" method="POST" action="" id="formlogin">
                     @csrf
                     <div class="col-12">
-                      <div class="input-group mb-3">
-                        <input type="text"class="form-control @error('username') is-invalid @enderror" placeholder="Masukan Username" name="username">
+                      <div class="form-floating mb-3">
+                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="floatingInput" name="username" placeholder="Username">
+                        <label for="floatingInput">Username</label>
                         @error('username')
                         <div class="invalid-feedback">
                           Username tidak boleh kosong
                         </div>
                         @enderror
                       </div>
-                      {{-- <label class="label" for="password">Password</label> --}}
-                      <div class="input-group mb-3 ">
-                        <input type="password" id="password" class="form-control password @error('password') is-invalid @enderror" placeholder="Masukan Password" name="password">
-                        <button class="btn btn-outline-secondary" id="showpassword" type="button">Show</button>
+                      <div class="form-floating">
+                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword" name="password" placeholder="Password">
+                        <label for="floatingPassword">Password</label>
                         @error('password')
                         <div class="invalid-feedback">
                           Password tidak boleh kosong
                         </div>
                         @enderror
                       </div>
-                      
                     </div>
 
-                    {{-- <div class="col-12">
+                    <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
                         <label class="form-check-label" for="rememberMe">Remember me</label>
                       </div>
-                    </div> --}}
+                    </div>
                     <div class="col-12" id="divlogin">
                       <button class="btn btn-primary w-100" type="submit" id="blogin">Login</button>
                     </div>
@@ -148,12 +141,8 @@
   <script>
     $(document).ready(function(){
     $("#showpassword").click(function(){
-    $("#password").attr("type", "text")
-    $('#showpassword').attr("id","hidepassword")
+    $("#password").attr("type", "text");
   });
-    // $('#password').focus(function(){
-    //   $('.label').show()
-    // })
 });
   </script>
 

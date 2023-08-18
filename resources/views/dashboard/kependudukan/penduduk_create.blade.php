@@ -234,8 +234,8 @@ Swal.fire({
                 <option>DIPLOMA II</option>
                 <option>DIPLOMA III</option>
                 <option>DIPLOMA IV/STRATA I</option>
-                <option>DIPLOMA IV/STRATA II</option>
-                <option>DIPLOMA IV/STRATA III</option>
+                <option>STRATA II</option>
+                <option>STRATA III</option>
               </select>
               <label for="floatingSelectGrid">Plih Pendidikan Terakhir</label>
             </div>

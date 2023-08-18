@@ -43,8 +43,7 @@ class PegawaiController extends Controller
         ]);
 
         Pegawai::create($validated);
-        $request->session()->put('pegawai_create','berhasil');
-        return back();
+        return back()->with('pegawai_create','berhasil');
     }
 
     /**

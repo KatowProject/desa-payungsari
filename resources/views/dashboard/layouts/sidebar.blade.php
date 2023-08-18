@@ -37,6 +37,25 @@
             <span>Buat Surat</span>
           </a>
         </li><!-- End Buat Surat Nav -->
+      
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('surat-masuk') ? '' : 'collapsed' }}" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+            <i class="bi bi-file-earmark-pdf-fill"></i><span>Kearsipan Surat</span><i class="bi bi-chevron-down ms-auto"></i>
+          </a>
+          <ul id="forms-nav" class="nav-content collapse {{ Request::is('surat-masuk') ? 'show' : '' }} " data-bs-parent="#sidebar-nav">
+            <li>
+              <a href="{{ url('surat-masuk') }}" class="{{ Request::is('surat-masuk') ? 'active' : '' }}">
+                <i class="bi bi-circle"></i><span>Surat Masuk</span>
+              </a>
+            </li>
+            <li>
+              <a href="{{ url('surat-masuk') }}">
+                <i class="bi bi-circle"></i><span>Surat Keluar</span>
+              </a>
+            </li>
+          </ul>
+        </li><!-- End Kearsipan Surat -->
+
 
       <li class="nav-item">
         <a class="nav-link {{ Request::is('post') ? '' : 'collapsed' }}" href="{{ url('post') }}">

@@ -1,0 +1,10 @@
+## Komponen Aplakasi 
+1. Laravel 
+2. PHP
+3. Bootstrap
+4. Jquery 
+5. SweetAlert2
+6. JqueryDatabase
+
+## Fitur Aplikasi
+1. Login Admin dan User (Admin : <EMAIL> , Password: password)
