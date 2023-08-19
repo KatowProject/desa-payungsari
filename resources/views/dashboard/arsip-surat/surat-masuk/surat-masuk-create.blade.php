@@ -96,11 +96,11 @@
                   
                 </div>
 
-                <div class="mb-3">
-                  <label for="file_surat" class="form-label">File Surat</label>
-                  <input class="" type="file" id="file_surat" name="file_surat">
-                  <div class="form-text">Upload File Surat</div>
+                <div class="mb-3" style="width: 320px;">
+                  <label for="formFile" class="form-label"></label>
+                  <input class="form-control" type="file" style="border: 1.2px solid rgb(91, 129, 255)" id="formFile">
                 </div>
+                
                 
                
                 <button type="submit" class="btn btn-primary">Tambah Surat</button>
