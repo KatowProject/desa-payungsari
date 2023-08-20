@@ -18,8 +18,9 @@ class SuratController extends Controller
 
     public function skdd(Request $request)
     {
-    
-        $pdf = PDF::loadView('dashboard.formatsurat.skdd', ['q' => $request]);
+        $penandatangan = explode(' - ',$request->penandatangan);
+        // dd($penandatangan);
+        $pdf = PDF::loadView('dashboard.formatsurat.skdd', ['q' => $request, 'pegawai' => $penandatangan[0] , 'jabatan' => $penandatangan[1]]);
         return $pdf->stream();
     }
 

@@ -28,9 +28,50 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
   <style>
-    .label {
-      display: none
+    .input-group{
+      position: relative;
+      margin: 20px 0;
     }
+  
+    .input-group label{
+      position: absolute;
+      top: 50%;
+      left:5px;
+      transform: translateY(-50%);
+      font-size:16px;
+      color:black;
+      padding: 0 5px;
+      pointer-events:none; 
+      transition: .5s;
+    }
+  
+    .input-group input{
+      width: 320px;
+      height: 40px;
+      font-size: 16px;
+      padding: 0 10px;
+      background: transparent;
+      border: 1.2px solid rgb(91, 129, 255);
+      outline: none;
+      border-radius: 7px !important;
+    }
+    
+    .input-group input:focus~label{
+      font-size: 12px;
+      top: 0;
+      color: black;
+      background: #fff;
+    }
+  
+  
+    .input-group input:valid~label {
+      font-size: 12px;
+      top: 0;
+      color: black;
+      background: #fff;
+      
+    }
+  
   </style>
 
 </head>
@@ -80,16 +121,18 @@
                     @csrf
                     <div class="col-12">
                       <div class="input-group mb-3">
-                        <input type="text"class="form-control @error('username') is-invalid @enderror" placeholder="Masukan Username" name="username">
+                        <label for="tanggal_diterima" class="">Username</label>
+                        <input type="text"class=" @error('username') is-invalid @enderror" placeholder="Masukan Username" name="username" required>
                         @error('username')
                         <div class="invalid-feedback">
                           Username tidak boleh kosong
                         </div>
                         @enderror
                       </div>
-                      {{-- <label class="label" for="password">Password</label> --}}
+                      
                       <div class="input-group mb-3 ">
-                        <input type="password" id="password" class="form-control password @error('password') is-invalid @enderror" placeholder="Masukan Password" name="password">
+                        <label for="tanggal_diterima" class="">Password</label>
+                        <input type="password" id="password" class=" password @error('password') is-invalid @enderror" placeholder="Masukan Password" name="password" required>
                         <button class="btn btn-outline-secondary" id="showpassword" type="button">Show</button>
                         @error('password')
                         <div class="invalid-feedback">

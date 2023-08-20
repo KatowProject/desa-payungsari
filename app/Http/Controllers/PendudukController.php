@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Penduduk;
 use App\Http\Requests\StorePendudukRequest;
 use App\Http\Requests\UpdatePendudukRequest;
+use App\Models\Pegawai;
+use Carbon\Carbon;
+use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -82,9 +85,12 @@ class PendudukController extends Controller
      */
     public function show(Penduduk $penduduk)
     {
+        // dd(new DateTime());
         return view('dashboard.kependudukan.buatsurat', [
             'title' =>  'Pembuatan Surat',
             'p' =>  $penduduk,
+            'pegawai' => Pegawai::all(),
+            'tanggal' => Carbon::now()->isoFormat('D MMMM Y')
         ]);
     }
 
