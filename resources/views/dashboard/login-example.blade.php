@@ -24,11 +24,55 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-  {{--my css --}}
-  
-
   <script src="{{ asset('assets/dashboard/js/jquery.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <style>
+    .input-group{
+      position: relative;
+      margin: 20px 0;
+    }
+  
+    .input-group label{
+      position: absolute;
+      top: 50%;
+      left:5px;
+      transform: translateY(-50%);
+      font-size:16px;
+      color:black;
+      padding: 0 5px;
+      pointer-events:none; 
+      transition: .5s;
+    }
+  
+    .input-group input{
+      width: 320px;
+      height: 40px;
+      font-size: 16px;
+      padding: 0 10px;
+      background: transparent;
+      border: 1.2px solid rgb(91, 129, 255);
+      outline: none;
+      border-radius: 7px !important;
+    }
+    
+    .input-group input:focus~label{
+      font-size: 12px;
+      top: 0;
+      color: black;
+      background: #fff;
+    }
+  
+  
+    .input-group input:valid~label {
+      font-size: 12px;
+      top: 0;
+      color: black;
+      background: #fff;
+      
+    }
+  
+  </style>
 
 </head>
 
@@ -76,32 +120,30 @@
                   <form class="row g-3 needs-validation" method="POST" action="" id="formlogin">
                     @csrf
                     <div class="col-12">
-                      <div class="form-floating mb-3">
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="floatingInput" name="username" placeholder="Username">
-                        <label for="floatingInput">Username</label>
+                      <div class="input-group">
+                        <label for="tanggal_diterima" class="">Username</label>
+                        <input type="text"class=" @error('username') is-invalid @enderror" placeholder="Masukan Username" name="username" required>
                         @error('username')
                         <div class="invalid-feedback">
                           Username tidak boleh kosong
                         </div>
                         @enderror
                       </div>
-                      <div class="form-floating">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword" name="password" placeholder="Password">
-                        <label for="floatingPassword">Password</label>
+                      
+                      <div class="input-group  ">
+                        <label for="tanggal_diterima" class="">Password</label>
+                        <input type="password" id="password" class=" password @error('password') is-invalid @enderror" placeholder="Masukan Password" name="password" required>
+                        <button class="btn btn-outline-secondary" id="showpassword" type="button">Show</button>
                         @error('password')
                         <div class="invalid-feedback">
                           Password tidak boleh kosong
                         </div>
                         @enderror
                       </div>
+                      
                     </div>
 
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
-                    </div>
+                    
                     <div class="col-12" id="divlogin">
                       <button class="btn btn-primary w-100" type="submit" id="blogin">Login</button>
                     </div>
@@ -144,8 +186,12 @@
   <script>
     $(document).ready(function(){
     $("#showpassword").click(function(){
-    $("#password").attr("type", "text");
+    $("#password").attr("type", "text")
+    $('#showpassword').attr("id","hidepassword")
   });
+    // $('#password').focus(function(){
+    //   $('.label').show()
+    // })
 });
   </script>
 
