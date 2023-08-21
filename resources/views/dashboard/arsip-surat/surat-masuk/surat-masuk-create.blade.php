@@ -1,111 +1,169 @@
 @extends('dashboard.layouts.template')
 
-<style>
-  .input-group{
-    position: relative;
-    margin: 20px 0;
-  }
-
-  .input-group label{
-    position: absolute;
-    top: 50%;
-    left:5px;
-    transform: translateY(-50%);
-    font-size:16px;
-    color:black;
-    padding: 0 5px;
-    pointer-events:none; 
-    transition: .5s;
-  }
-
-  .input-group input{
-    width: 320px;
-    height: 40px;
-    font-size: 16px;
-    padding: 0 10px;
-    background: transparent;
-    border: 1.2px solid rgb(91, 129, 255);
-    outline: none;
-    border-radius: 7px !important;
-  }
-  
-  .input-group input:focus~label{
-    font-size: 12px;
-    top: 0;
-    color: black;
-    background: #fff;
-  }
-
-
-  .input-group input:valid~label {
-    font-size: 12px;
-    top: 0;
-    color: black;
-    background: #fff;
-    
-  }
-
-</style>
 
 @section('content')
 
+<style>
+
+  
+.form-label{
+  font-weight: 500;
+  padding-left: 3px;
+  font-size: 14px;
+  font-family: Arial;
+}
+
+.form-label span{
+  color: red;
+}
+
+#nomor_urut{
+  text-align: center;
+  font-weight: 500;
+  background-color: rgb(182, 182, 182);
+}
+
+.form-control{
+  box-shadow: none;
+  border-radius: 0; 
+}
+
+.form-select{
+  box-shadow: none;
+  border-radius: 0; 
+}
+
+.form-control:focus{
+  box-shadow: none;
+  border-radius: 0; 
+}
+
+.form-select:focus{
+  box-shadow: none;
+  border-radius: 0; 
+}
+
+.btn-submit{
+  border-radius: 5px;
+  padding: 10px 30px;
+}
+
+.btn-back{
+  border-radius: 5px;
+  padding: 10px 30px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+
+</style>
+
+@if (Request::session()->has('surat_masuk_create'))
+<script>
+Swal.fire({
+  icon: 'success',
+  title: 'Arsip Berhasil Disimpan',
+  showConfirmButton: false,
+  timer: 1500
+})
+</script>
+<?php Request::session()->forget('surat_masuk_create'); ?>
+@endif
+
+
 <div class="card">
+  <div>
+    <a href="{{ url('surat-masuk') }}" class="btn btn-danger btn-back">Batal</a>
+  </div>
     <h2 class="card-title px-4">Form Surat Masuk</h2>
         <div class="card-body">
-            <form action="{{ url('surat-masuk') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ url('surat-masuk') }}" method="POST" enctype="multipart/form-data" class="row g-3">
                 @csrf
-                <div class="input-group">
-                  <input type="text" class="" id="nomor_urut" name="nomor_urut" required>
-                  <label for="nomor_urut" class="">Nomor Urut</label>
-                  
+                <div class="col-md-12">
+                  <div class="col-md-1">
+                    <label for="nomor_urut" class="form-label">No Urut <span>*</span></label>
+                    <input type="text" class="form-control" id="nomor_urut" name="nomor_urut" value="{{$nomor_urut}}" readonly>
+                  </div>
                 </div>
-
-                <div class="input-group">
-                  <input type="text" id="tanggal_diterima" name="tanggal_diterima" required>
-                  <label for="tanggal_diterima" class="">Tanggal Diterima</label>
-                  
+                <div class="col-md-12">
+                    <label for="nomor_surat" class="form-label">No Surat <span>*</span></label>
+                    <input type="text" class="form-control" id="nomor_surat" name="nomor_surat" value="{{ old('nomor_surat') }}" autocomplete="off">
                 </div>
-
-                <div class="input-group">
-                  <input type="text" class="" id="nomor_surat" name="nomor_surat" required>
-                  <label for="nomor_surat" class="form-label">Nomor Surat</label>
-                  
+                <div class="col-md-6">
+                  <label for="tanggal_surat" class="form-label">Tanggal Surat <span>*</span></label>
+                  <input type="email" class="form-control" id="tanggal_surat" name="tanggal_surat" value="{{ old('tanggal_surat') }}" autocomplete="off">
                 </div>
-
-                <div class="input-group">
-                  <input type="text" class="" id="tanggal_surat" name="tanggal_surat" required>
-                  <label for="tanggal_surat" class="form-label">Tanggal Surat</label>
-                  
-                </div>
-
-                <div class="input-group">
-                  <input type="text" class="" id="perihal_surat" name="perihal_surat" required>
-                  <label for="perihal_surat" class="form-label">Perihal Surat</label>
-                  
-                </div>
-
-                <div class="input-group">
-                  <input type="text" class="" id="asal_surat" name="asal_surat" required>
-                  <label for="asal_surat" class="form-label">Asal Surat</label>
-                  
-                </div>
-
-                <div class="input-group">
-                  <input type="text" class="" id="isi_ringkas" name="isi_ringkas" required>
-                  <label for="isi_ringkas" class="form-label">Isi Ringkas</label>
-                  
-                </div>
-
-                <div class="mb-3" style="width: 320px;">
-                  <label for="formFile" class="form-label"></label>
-                  <input class="form-control" type="file" style="border: 1.2px solid rgb(91, 129, 255)" id="formFile">
-                </div>
-                
-                
+                <div class="col-md-6">
+                    <label for="tanggal_diterima" class="form-label">Tanggal Diterima <span>*</span></label>
+                    <input type="text" class="form-control" id="tanggal_diterima" name="tanggal_diterima" value="{{ old('tanggal_diterima') }}" autocomplete="off">
+                  </div>
+                  <div class="col-12">
+                    <label for="perihal_surat" class="form-label">Perihal Surat <span>*</span></label>
+                    <input type="text" class="form-control" id="perihal_surat" name="perihal_surat" value="{{ old('perihal_surat') }}" autocomplete="off">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="tanggal_surat" class="form-label">Jenis Surat <span>*</span></label>
+                    <select class="form-select" name="jenis_surat">
+                      <option selected>Pilih Jenis Surat</option>
+                      <option>Surat Biasa</option>
+                      <option>Surat Undangan</option>
+                      <option>Surat Pengantar</option>
+                      <option>Surat Tugas</option>
+                      <option>Berita Acara</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                      <label for="tanggal_dikirim" class="form-label">Sifat Surat <span>*</span></label>
+                      <select class="form-select" name="sifat_surat">
+                        <option selected>PIlih Sifat Surat</option>
+                        <option>Biasa</option>
+                        <option>Penting</option>
+                        <option>Segera</option>
+                      </select>
+                    </div>
+                  <div class="col-12">
+                    <label for="asal_surat" class="form-label">Asal Surat <span>*</span></label>
+                    <input type="text" class="form-control" id="asal_surat" name="asal_surat" value="{{ old('asal_surat') }}" autocomplete="off">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="formFile" class="form-label">File Surat <span>*</span></label>
+                    <input class="form-control" type="file" id="file_surat" name="file_surat">
+                  </div>
+                  <div class="col-12 text-end">
+                    <button class="btn btn-primary btn-submit"><i class="bi bi-file-earmark-plus"></i> Tambah Surat </button>
+                  </div>        
                
-                <button type="submit" class="btn btn-primary">Tambah Surat</button>
               </form>
         </div>
 </div>
+
+<script>
+  $('.btn-submit').click(function (e) { 
+    e.preventDefault();
+    let form = $(this).closest('form');
+    Swal.fire({
+    title: 'Tambahkan Arsip?',
+    text: "Pastikan Data Sudah Benar!",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: 'blue',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Tambah'
+    }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: 'Sedang Menyimpan Arsip',
+        html: 'Mohon Tunggu ...',
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading()
+        },
+      });
+        form.submit();
+    }
+  })
+    });
+  </script>
     
 @endsection

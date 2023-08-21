@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('tanggal_diterima');
             $table->string('perihal_surat');
             $table->string('jenis_surat');
+            $table->string('sifat_surat');
             $table->string('asal_surat');
-            $table->string('pengelola_surat')->nullable();
+            $table->string('ditujukan')->nullable();
             $table->string('isi_ringkas')->nullable();
             $table->string('file_surat')->nullable();
             $table->timestamps();

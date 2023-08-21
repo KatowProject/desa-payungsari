@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\SuratMasuk;
+use Illuminate\Support\Facades\Storage;
 
 class SuratMasukController extends Controller
 {
@@ -23,8 +24,12 @@ class SuratMasukController extends Controller
      */
     public function create()
     {
+        $jumlah_data = SuratMasuk::count();
+        $jumlah_data++;
+        $hasil = sprintf("%03s", $jumlah_data);
         return view('dashboard.arsip-surat.surat-masuk.surat-masuk-create', [
             'title' => "Tambah Surat Masuk",
+            'nomor_urut' => $hasil
            
         ]);
     }
@@ -35,8 +40,22 @@ class SuratMasukController extends Controller
     public function store(Request $request)
     {
     //  dd($request);
-    SuratMasuk::create($request->all());
-    return back();
+    $validated = $request->validate([
+        'nomor_urut'       => 'required',
+        'nomor_surat'      => '',
+        'tanggal_surat'    => '',
+        'tanggal_diterima' => '',
+        'perihal_surat'    => '',
+        'jenis_surat'      => '',
+        'sifat_surat'      => '',
+        'asal_surat'       => '',
+    ]);
+    if ($request->file('file_surat')) {
+        $validated['file_surat'] = $request->file('file_surat')->storePublicly('surat_masuk');
+    }
+    SuratMasuk::create($validated);
+    return back()->with('surat_masuk_create', 'success');
+
     }
 
     /**
@@ -52,7 +71,10 @@ class SuratMasukController extends Controller
      */
     public function edit(SuratMasuk $SuratMasuk)
     {
-        return 'halaman edit';
+        return view('dashboard.arsip-surat.surat-masuk.surat-masuk-edit', [
+            'title' => 'Edit Surat Masuk',
+            'data' => $SuratMasuk,
+        ]);
     }
 
     /**
@@ -60,7 +82,25 @@ class SuratMasukController extends Controller
      */
     public function update(Request $request, SuratMasuk $SuratMasuk)
     {
-        //
+        $validated = $request->validate([
+            'nomor_urut'       => 'required',
+            'nomor_surat'      => '',
+            'tanggal_surat'    => '',
+            'tanggal_diterima' => '',
+            'perihal_surat'    => '',
+            'jenis_surat'      => '',
+            'sifat_surat'      => '',
+            'asal_surat'       => '',
+        ]);
+        if ($request->file('file_surat')) {
+            Storage::delete($SuratMasuk->file_surat);
+            $validated['file_surat'] = $request->file('file_surat')->storePublicly('surat_masuk');
+            }else{
+            $validated['file_surat'] = $SuratMasuk->file_surat;
+            }
+        SuratMasuk::where('id',$SuratMasuk->id)
+        ->update($validated);
+        return back()->with('surat_masuk_update', 'success');
     }
 
     /**

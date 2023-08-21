@@ -20,7 +20,7 @@ Swal.fire(
         arsip Surat masuk
     </h2>
     <div class="card-body">
-      <div class="table-responsiv">
+      <div class="table-responsive-md" style="overflow-y: visible;!important">
         <table class="table" style="vertical-align: middle ">
             <thead>
                 <th>Nomor Urut</th>
@@ -48,7 +48,7 @@ Swal.fire(
                             </button>
                             <ul class="dropdown-menu">
                               <li>
-                                  <a class="dropdown-item" href="#" ><i class="bi bi-eye"></i> Lihat</a>
+                                  <a class="dropdown-item" href="{{ asset('storage/'.$item->file_surat) }}" ><i class="bi bi-eye"></i> Lihat File</a>
                               </li>
                               <li>
                                   <a class="dropdown-item" href="{{ url('surat-masuk/'.$item->id.'/edit') }}" ><i class="bi bi-pencil"></i> Edit</a>
