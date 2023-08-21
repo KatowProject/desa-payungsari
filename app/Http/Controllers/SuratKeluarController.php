@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SuratKeluar;
 
 class SuratKeluarController extends Controller
 {
@@ -11,7 +12,10 @@ class SuratKeluarController extends Controller
      */
     public function index()
     {
-        //
+        return view('dashboard.arsip-surat.surat-keluar.surat-keluar-index', [
+            'title'  =>  'Surat Keluar',
+            'data'   =>   SuratKeluar::all()
+        ]);
     }
 
     /**
@@ -19,7 +23,9 @@ class SuratKeluarController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.arsip-surat.surat-keluar.surat-keluar-create', [
+            'title'          =>  'Surat Keluar Create',
+        ]);
     }
 
     /**
@@ -33,7 +39,7 @@ class SuratKeluarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(SuratKeluar $SuratKeluar)
     {
         //
     }
@@ -41,15 +47,17 @@ class SuratKeluarController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(SuratKeluar $SuratKeluar)
     {
-        //
+        return view('dashboard.arsip-surat.surat-keluar.surat-keluar-edit', [
+            'title'          =>  'Surat Keluar Edit',
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, SuratKeluar $SuratKeluar)
     {
         //
     }
@@ -57,7 +65,7 @@ class SuratKeluarController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(SuratKeluar $SuratKeluar)
     {
         //
     }

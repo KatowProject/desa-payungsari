@@ -8,6 +8,7 @@ use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\SuratMasukController;
+use App\Http\Controllers\SuratKeluarController;
 use Illuminate\Support\Facades\Route;
 
 //Route Website Blog
@@ -47,7 +48,7 @@ Route::get('pencarian_penduduk', [PendudukController::class,'index'])->middlewar
 Route::post('pencarian_penduduk', [PendudukController::class,'pencarian_penduduk'])->middleware('auth');
 Route::resource('pegawai', PegawaiController::class)->middleware('auth');
 Route::resource('surat-masuk', SuratMasukController::class)->middleware('auth');
-
+Route::resource('surat-keluar', SuratKeluarController::class)->middleware('auth');
 
 //Route Pembuatan Surat
 Route::get('buatsurat',[SuratController::class, 'buatsurat'])->middleware('auth');
