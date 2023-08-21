@@ -6,14 +6,35 @@
     <title>Surat Keterangan Desa Domisili</title>
     <style>
       *{
-        font-family: 'Times New Roman', Times, serif;
+        font-family: 'Times New Roman';
         margin: 0;
         padding: 0;
       }
       body {
         width: 793px;
         height: 1200px;
+        margin: auto;
+        font-family: 'Times New Roman';
       }
+
+      .border-judul{
+        border-bottom : 4px solid black ;
+        font-family: 'Times New Roman';
+      }
+      .border-judul-1{
+        border-bottom : 2px solid black ;
+        margin-top: 3px;
+        font-family: 'Times New Roman';
+      }
+
+      .border-surat{
+        border-top:1px solid black ;
+        margin-top: ;
+        width:41% ;
+        margin: -10px auto ; 
+        font-family: 'Times New Roman';
+      }
+
       .header{
         font-size: 2rem;
         text-align: center;
@@ -21,105 +42,152 @@
       }
       .judulsurat{
         text-align: center;
-        font-size: 1.6rem;
-        text-decoration: underline;
+        font-size: 14;
+        font-family: 'Times New Roman';
         margin-top: 2rem;
       }
       .nomorsurat {
         text-align: center;
-        font-size: 1.2rem
+        font-size: 12;
+        font-family: 'Times New Roman';
       }
+      .paragraf {
+        font-family: 'Times New Roman';
+        font-size: 12;
+        padding: 5px;
+      }
+
       .memerintahkan {
         text-align: center;
         font-size: 1.4rem;
         text-decoration: underline;
         margin-top: 1.5rem;
+        font-family: 'Times New Roman';
       }
       .kopsurat {
         padding-top: 2rem;
+        font-family: 'Times New Roman';
       }
       #logo {
         float: left;
+        font-family: 'Times New Roman';
       }
       table {
         font-size: 1.2rem;
+        font-family: 'Times New Roman';
       }
+
+      .tanda-tangan{
+        margin-left: 290px;
+        margin-top: 150px
+        font-family: 'Times New Roman';
+      }
+
+      .tanda-tangan .anak-terakhir{
+        margin-top:-10px; 
+        padding-bottom: 90px
+        font-family: 'Times New Roman';
+      }
+
+      .paragraf-1{
+        margin-top: -17px;
+      }
+
+      .anak-kedua{
+        margin-top:-10px; 
+      }
+
     </style>
   <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}">
   </head>
   <body>
-    <div class="container">
+    <div class="container mx-auto" style="">
       <div class="row">
-        <div class="col-12 kopsurat">
-          <img src="{{ asset('assets/dashboard/img/karawang.png') }}" width="90px" id="logo">
-          <h2 class="header">Pemerintah Daerah Kabupaten Karawang<br>Desa Payungsari</h2>
-          <p style="text-align: center;">Jl Raya Sungaibuntu Desa Payungsari Kec.Pedes Kab.Karawang - Jawa Barat 41353<br>
-          Email : payungsarides@gmail.com</p>
+        <div class="col-12 kopsurat text-center">
+
+          <img src="{{ asset('assets/img/header-kop-surat.png') }}" width="100%" id="logo">
         </div>
-        <hr class="border border-dark border-2 opacity-50">
       </div>
-      <h1 class="judulsurat">SURAT KETERANGAN DOMISLI</h1>
+      <h1 class="judulsurat">SURAT KETERANGAN DOMISILI</h1>
+      <div class="border-surat"></div>
       <p class="nomorsurat">Nomor : {{ $q->nomor_surat }}</p>
-      <table style="margin-top: 1rem;">
-        <td>Yang bertanda tangan dibawah ini Kepala Desa Payungsari Kec.Pedes Kab.Karawang <br>menerangkan bahwa :</td>
-      </table>
-      <table style="margin-top: 1rem">
-        <tr>
-          <td width="180px">Nama</td>
-          <td width="20px">:</td>
-          <td>{{ $q->nama }}</td>
-        </tr>
-        <tr>
-          <td>NIK</td>
-          <td>:</td>
-          <td>{{ $q->nik }}</td>
-        </tr>
-        <tr>
-          <td>Tempat,Tgl Lahir</td>
-          <td>:</td>
-          <td>{{ $q->ttl }}</td>
-        </tr>
-        <tr>
-          <td>Jenis Kelamin</td>
-          <td>:</td>
-          <td>{{ $q->jenis_kelamin }}</td>
-        </tr>
-        <tr>
-          <td>Pekerjaan</td>
-          <td>:</td>
-          <td>Belum Bekerja</td>
-        </tr>
-        <tr>
-          <td>Agama</td>
-          <td>:</td>
-          <td>ISLAM</td>
-        </tr>
-        <tr>
-          <td>Status Perkawinan</td>
-          <td>:</td>
-          <td>{{ $q->status_perkawinan }}</td>
-        </tr>
-        <tr>
-          <td>Alamat</td>
-          <td>:</td>
-          <td>{{ $q->alamat }}</td>
-        </tr>
-      </table>
-      <table style="margin-top: 1rem;">
-        <td>Yang bersangkutan adalah warga desa kami yang berlamat tinggal atau berdomisili <br>sebagaimana tersebut diatas. <br>
-          Surat Keterangan domisili ini dibuat untuk keperluan {{ $q->keperluan }}. <br>
-          Demikian Surat Keterangan Domisili ini kami buat dengan sebenar-benarnya, agar yang <br>
-          berkepentingan menjadi tahu dan dipergunakan sebagaimana mestinya.
+      
+      <table class="px-6 paragraf-1" style="padding: 5px 11% ; line-height:25px;">
+        <td class="paragraf" style="text-align: justify">&nbsp; &nbsp; &nbsp; &nbsp; Yang bertandatangan dibawah ini Kepala Desa Payungsari Kecamatan Pedes Kabupaten Karawang menerangkan bahwa :
         </td>
       </table>
-      <table style="margin-top: 5rem;margin-left:26rem;text-align:center;">
-        <tr><td>Payungsari, 10 Agustus 2023</td></tr>
-        <tr><td>Kepala Desa Payungsari</td></tr>
-        
-        <br><br><br>
-        <tr><td>Ahmad Satibi,S.Sos</td></tr>
+      
+      <table class="px-6" style="padding: 0 11% ; " cellspacing="7">
+        <tr>
+          <td class="paragraf" width="135px" >Nama</td>
+          <td class="paragraf" width="15px">:</td>
+          <td class="paragraf" >{{ $q->nama }}</td>
+        </tr>
+        <tr>
+          <td class="paragraf" style="margin-top:10px;" >NIK</td>
+          <td class="paragraf" >:</td>
+          <td class="paragraf" >{{ $q->nik }}</td>
+        </tr>
+        <tr>
+          <td class="paragraf" >Tempat, Tgl Lahir</td>
+          <td class="paragraf" >:</td>
+          <td class="paragraf" >{{ $q->ttl }}</td>
+        </tr>
+        <tr>
+          <td class="paragraf" >Jenis Kelamin</td>
+          <td class="paragraf" >:</td>
+          <td class="paragraf" >{{ $q->jenis_kelamin }}</td>
+        </tr>
+        <tr>
+          <td class="paragraf" >Pekerjaan</td>
+          <td class="paragraf" >:</td>
+          <td class="paragraf" >{{ $q->pekerjaan }}</td>
+        </tr>
+        <tr>
+          <td class="paragraf" >Agama</td>
+          <td class="paragraf" >:</td>
+          <td class="paragraf" >{{ $q->agama }}</td>
+        </tr>
+        <tr>
+          <td class="paragraf" >Status Perkawinan</td>
+          <td class="paragraf" >:</td>
+          <td class="paragraf" >{{ $q->status_perkawinan }}</td>
+        </tr>
+        <tr>
+          <td class="paragraf" style="vertical-align: top;">Alamat di e-KTP</td>
+          <td class="paragraf" style="vertical-align: top;">:</td>
+          <td class="paragraf" >{{ $q->alamat }}</td>
+        </tr>
       </table>
 
-    </div>
+      <table class="px-6" style="padding: 5px 11% ;line-height:25px;">
+        <td class="paragraf" style="text-align: justify">&nbsp; &nbsp; &nbsp; &nbsp;Yang bersangkutan adalah warga desa Kami yang beralamat tinggal atau berdomisili sebagaimana tersebut diatas. 
+        </td>
+      </table>
+
+      <table class="px-6" style="padding: 0 11% ;line-height:25px;">
+        <td class="paragraf" style="text-align: justify">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Surat Keterangan Domisili ini dibuat untuk keperluan {{ $q->keperluan }}.
+        </td>
+      </table>
+
+      <table class="px-6" style="padding: 5px 11% ;line-height:25px;">
+        <td class="paragraf" style="text-align: justify">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Demikian Surat Keterangan Domisili ini Kami buat dengan sebenar-benarnya, agar yang berkepentingan menjadi tahu dan dipergunakan sebagaimana mestinya.
+        </td>
+      </table>
+
+
+      <div class="tanda-tangan" style="box-sizing: border-box; padding-top:30px;text-align:center;">
+        <p>Payungsari, {{ $q->tanggal_ttd }}</p>
+        @if (request()->an_kades)
+        <p class="anak-kedua">AN.KEPALA DESA PAYUNGSARI</p>
+        <p class="anak-terakhir" style="padding-bottom: 50px;">{{$jabatan}}</p>
+        <u style="font-weight: 600">{{ $pegawai }}</u>
+        @else
+        <p class="anak-kedua" style="padding-bottom: 50px;">KEPALA DESA PAYUNGSARI</p>
+        <u style="font-weight: 600">{{ $pegawai }}</u>
+        @endif
+      </div>
+
+      </div>
   </body>
 </html>

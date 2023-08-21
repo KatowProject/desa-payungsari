@@ -26,21 +26,21 @@
         </div>
       </div>
       <div class="row mb-2">
-        <label for="nama" class="col-sm-2 col-form-label col-form-label-sm">NIK</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="nik" value="{{ $p->nik }}">
-        </div>
-      </div>
-      <div class="row mb-2">
         <label for="nik" class="col-sm-2 col-form-label col-form-label-sm">Nama</label>
         <div class="col-sm-10">
           <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="nama" value="{{ $p->nama_lengkap }}">
         </div>
       </div>
       <div class="row mb-2">
+        <label for="nama" class="col-sm-2 col-form-label col-form-label-sm">NIK</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="nik" value="{{ $p->nik }}">
+        </div>
+      </div>
+      <div class="row mb-2">
         <label for="pekerjaan" class="col-sm-2 col-form-label col-form-label-sm">Tempat,Tgl Lahir</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="ttl" value="{{ $p->tempat_lahir.','.$p->tanggal_lahir }}">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="ttl" value="{{ $p->tempat_lahir.', '.$p->tanggal_lahir }}">
         </div>
       </div>
       <div class="row mb-2">
@@ -50,21 +50,58 @@
         </div>
       </div>
       <div class="row mb-2">
+        <label for="pekerjaan" class="col-sm-2 col-form-label col-form-label-sm">Pekerjaan</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="pekerjaan" value="{{ $p->pekerjaan }}">
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label for="pekerjaan" class="col-sm-2 col-form-label col-form-label-sm">Agama</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="agama" value="{{ $p->agama }}">
+        </div>
+      </div>
+      <div class="row mb-2">
         <label for="pekerjaan" class="col-sm-2 col-form-label col-form-label-sm">Status Perkawinan</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="status_perkawinan" value="{{ $p->status_kawin }}">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="status_perkawinan" value="{{ $p->status_perkawinan }}">
         </div>
       </div>
       <div class="row mb-2">
         <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Alamat</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="alamat" value="{{ $p->alamat.' RT'.$p->no_rt.'/RW.'.$p->no_rw }}">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="alamat" value="{{ $p->dusun.' RT'.$p->no_rt.' RW.'.$p->no_rw.' Desa Payungsari Kec.Pedes Kab.Karawang' }}">
         </div>
       </div>
       <div class="row mb-2">
         <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Keperluan</label>
         <div class="col-sm-10">
           <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="keperluan">
+        </div>
+      </div>
+      
+      <div class="row mb-2">
+        <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Atas Nama Kepala Desa</label>
+        <div class="col-sm-10">
+          <input type="checkbox" name="an_kades">
+        </div>
+      </div>
+      
+      <div class="row mb-2">
+        <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Tanggal TTD</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" value="{{ $tanggal }}" name="tanggal_ttd">
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Penandatangan</label>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example" name="penandatangan">
+            <option selected>Pilih Penandatangan</option>
+            @foreach ($pegawai as $pg)
+            <option>{{ $pg->nama_pegawai.' - '.$pg->jabatan }}</option>
+            @endforeach
+          </select>
         </div>
       </div>
       <button type="submit" class="btn btn-outline-primary mt-2" >Buat Surat</button>

@@ -93,14 +93,14 @@
           <img src="{{ asset('assets/img/header-kop-surat.png') }}" width="100%" id="logo">
         </div>
       </div>
-      <h1 class="judulsurat">SURAT KETERANGAN USAHA/DAGANG</h1>
-      <div class="border-surat"></div>
+      <h1 class="judulsurat border-bottom">SURAT KETERANGAN DOMISILI</h1>
       <p class="nomorsurat">Nomor : {{ $q->nomor_surat }}</p>
       
-      <table style="margin-top: 1rem;">
-        <td style="padding: auto 50px"> <p style="text-align: justify">&nbsp; &nbsp; &nbsp;Yang bertanda tangan dibawah ini Kepala Desa Payungsari Kec.Pedes Kab.Karawang menerangkan bahwa :</p></td>
+      <table style="margin-top: 1rem; padding: 50px auto;">
+        <td> <pre style="text-align: justify">Yang bertanda tangan dibawah ini Kepala Desa Payungsari Kec.Pedes Kab.Karawang menerangkan bahwa :</pre></td>
       </table>
-      <table style="margin-top: 1rem">
+      
+      <table>
         <tr>
           <td width="180px" style="padding: auto 50px">Nama</td>
           <td width="20px">:</td>
@@ -144,23 +144,26 @@
       </table>
     
       <table style="margin-top: 1rem;">
-        <td style="padding: auto 50px; font-family:'Times New Roman', Times, serif;">
+        <td style="padding: auto 50px; font-family:'Times New Roman', Times, serif;text-align:justify">
           &nbsp; &nbsp; &nbsp;Adalah warga Desa Payungsari Kecamatan Pedes Kabupaten Karawang dengan alamat
           tinggal sebagaimana tersebut di atas. <br>
-          &nbsp; &nbsp; &nbsp;Menurut pengetahuan/ penelitian Kami orang tersebut benar sebagai pengusaha :
         </td>
       </table>
 
+      <table>
+        <td style="padding: auto 50px; font-family:'Times New Roman', Times, serif;text-align:justify">
+          &nbsp; &nbsp; &nbsp;Surat keterangan domisili ini dibuat untuk keperluan melamar pekerjaan.
+        </td>
+      </table>
 
-      <table style="margin-top: 1rem;" >
-        <td style="padding: auto 50px; font-family:'Times New Roman', Times, serif;"> <p style="text-align:justify;">&nbsp; &nbsp; &nbsp; Yang bersangkutan adalah warga desa kami yang berlamat tinggal atau berdomisili sebagaimana tersebut diatas. <br>
-            &nbsp; &nbsp; &nbsp; Surat Keterangan domisili ini dibuat untuk keperluan {{ $q->keperluan }}. <br>
-            &nbsp; &nbsp; &nbsp; Demikian Surat Keterangan Domisili ini kami buat dengan sebenar-benarnya, agar yang berkepentingan menjadi tahu dan dipergunakan sebagaimana mestinya. </p>
+      <table>
+        <td style="padding: auto 50px; font-family:'Times New Roman', Times, serif;text-align:justify">
+          &nbsp; &nbsp; &nbsp;Demikian Surat Keterangan Domisili ini kami buat dengan sebenar-benarnya, agar yang berkepentingan menjadi tahu dan dipergunakan sebagaimana mestinya.<br>
         </td>
       </table>
      
 
-      <div class="validasi" style="box-sizing: border-box; padding-top:30px;">
+      <div class="validasi" style="box-sizing: border-box; padding-top:30px;text-align:center;">
         <p>Payungsari, 04 Agustus 2023</p>
         <p>KEPALA DESA PAYUNGSARI</p>
         <p class="anak-terakhir" style="padding-bottom: 50px;">Kasi. Pemerintahan</p>

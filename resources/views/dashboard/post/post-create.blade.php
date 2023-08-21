@@ -42,11 +42,38 @@ Swal.fire({
         <input id="body" type="hidden" name="body">
         <trix-editor input="body"></trix-editor>
       </div>
-      <input type="submit" value="Tambah Postingan" class="btn btn-primary text-bg-success">
+      <button class="btn btn-primary submit-confirm" >Publikasi</button>
     </form>
   </div>
 </div>
-
+<script>
+  $('.submit-confirm').click(function (e) { 
+    e.preventDefault();
+    let form = $(this).closest('form');
+    Swal.fire({
+    title: 'Publikasikan Postingan?',
+    text: "Pastikan Data Sudah Benar!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: 'blue',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Publikasi'
+    }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: 'Sedang Mempublikasikan Postingan',
+        html: 'Mohon Tunggu ...',
+        timer: 1500,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading()
+        },
+      });
+        form.submit();
+    }
+  })
+    });
+  </script>
 <script>
 document.addEventListener('trix-file-accept', function(e){
   e.preventDefault();

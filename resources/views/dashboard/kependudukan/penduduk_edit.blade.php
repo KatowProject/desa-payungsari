@@ -339,7 +339,7 @@ Swal.fire({
     showCancelButton: true,
     confirmButtonColor: '#3085d6',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Yes, delete it!'
+    confirmButtonText: 'Hapus Penduduk!'
     }).then((result) => {
     if (result.isConfirmed) {
         form.submit();

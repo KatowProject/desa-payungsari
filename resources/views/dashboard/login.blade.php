@@ -27,100 +27,186 @@
   <script src="{{ asset('assets/dashboard/js/jquery.js') }}"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+  
+<style>
+  .div-login{
+    margin-top: 30vh;
+  }
+
+  @media (max-width:450px){
+    .div-login{
+    margin-top: 22vh;
+  }
+
+  }
+
+
+  .input-group{
+    position: relative;
+    margin: 20px 0;   
+  }
+
+  .input-group label{
+    position: absolute;
+    top: 50%;
+    left:30px;
+    transform: translateY(-50%);
+    font-size:16px;
+    color:black;
+    padding: 0 5px;
+    pointer-events:none; 
+    transition: 0.3s;
+  }
+
+  .input-group input{
+    width: 90%;
+    padding-left: 12px;
+    margin: auto;
+    height: 50px;
+    font-size: 16px;
+    background: transparent;
+    border: 1.2px solid #aeaeae;
+    outline-width: thin;
+    outline-color:rgb(99, 176, 254);
+    
+  }
+  
+  .input-group input:focus~label{
+    font-size: 14px;
+    top: 0;
+    font-weight: bold;
+    color: rgb(99, 176, 254);
+    background: #fff;
+  }
+
+
+  .input-group input:valid~label {
+    font-size: 14px;
+    top: 0;
+    font-weight: 500;
+    color: rgb(99, 176, 254);
+    background: #fff;
+    
+  }
+
+  #blogin{
+    width:90% ;
+  }
+
+  .logo-login{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    font-family: 'Times New Roman';
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: -18px;
+  }
+
+  .text-logo{
+    display: flex;
+    flex-direction: column;
+  }
+
+  img{
+    width: 60px;
+    height: 60px;
+  }
+
+
+  .input-group img{
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    left: 330px;
+    top: 17px;
+    cursor: pointer;
+  }
+
+
+
+</style>
+
+
 </head>
 
 <body>
+  @error('username')
+  <script>
+    Swal.fire({
+    icon: 'error',
+    title: 'Oops... Login Gagal',
+    text: 'Username Tidak Boleh Kosong',
+    })
+  </script>
+  @enderror
+  @error('password')
+  <script>
+    Swal.fire({
+    icon: 'error',
+    title: 'Oops... Login Gagal',
+    text: 'Password Tidak Boleh Kosong',
+    })
+  </script>
+  @enderror
+  @if (Request::session()->has('gagal'))
+    <script>
+      Swal.fire({
+      icon: 'error',
+      title: 'Oops... Login Gagal',
+      text: 'Masukan Username dan Password yang benar',
+      })
+    </script>
+    <?php Request::session()->forget('gagal') ?>
+  @endif
+  @if (Request::session()->has('regist'))
+    <script>
+      Swal.fire(
+      'Registrasi Berhasil',
+      'Silahkan Login...',
+      'success'
+      )
+    </script>
+    <?php Request::session()->forget('regist') ?>
+  @endif
 
   <main>
     <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-4">
 
-      @if (Request::session()->has('gagal'))
-        <script>
-          Swal.fire({
-          icon: 'error',
-          title: 'Oops... Login Gagal',
-          text: 'Masukan Username dan Password yang benar',
-          })
-        </script>
-        <?php Request::session()->forget('gagal') ?>
-      @endif
-      @if (Request::session()->has('regist'))
-        <script>
-          Swal.fire(
-          'Registrasi Berhasil',
-          'Silahkan Login...',
-          'success'
-          )
-        </script>
-        <?php Request::session()->forget('regist') ?>
-      @endif
-
-      <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
-
-              <div class="card mb-4">
-                
-                <div class="card-body">
-                  <div class="d-flex justify-content-center py-4">
-                    <a href="#" class="logo d-flex align-items-center w-auto">
-                      <img src="assets/dashboard/img/favicon.ico" alt="">
-                      <h4 class="d-none d-lg-block">Desa Payungsari</h4>
-                    </a>
-                  </div><!-- End Logo -->
-
-                  <form class="row g-3 needs-validation" method="POST" action="" id="formlogin">
-                    @csrf
-                    <div class="col-12">
-                      <div class="form-floating mb-3">
-                        <input type="text" class="form-control @error('username') is-invalid @enderror" id="floatingInput" name="username" placeholder="Username">
-                        <label for="floatingInput">Username</label>
-                        @error('username')
-                        <div class="invalid-feedback">
-                          Username tidak boleh kosong
-                        </div>
-                        @enderror
-                      </div>
-                      <div class="form-floating">
-                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" id="floatingPassword" name="password" placeholder="Password">
-                        <label for="floatingPassword">Password</label>
-                        @error('password')
-                        <div class="invalid-feedback">
-                          Password tidak boleh kosong
-                        </div>
-                        @enderror
-                      </div>
-                    </div>
-
-                    <div class="col-12">
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" name="remember" value="true" id="rememberMe">
-                        <label class="form-check-label" for="rememberMe">Remember me</label>
-                      </div>
-                    </div>
-                    <div class="col-12" id="divlogin">
-                      <button class="btn btn-primary w-100" type="submit" id="blogin">Login</button>
-                    </div>
-                    <div class="col-12">
-                      <p class="small mb-0 text-center"><a href="{{ url('/') }}">Kembali Ke Halaman Utama</a></p>
-                    </div>
-                  </form>
-
-                </div>
-              </div>
-
-              <div class="credits">
-                {{-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> --}}
-              </div>
-
-            </div>
+      <div class="card text-center div-login ">
+        <div class="logo-login ">
+          <img src="{{asset('assets/img/Kabupaten-Karawang.png')}}" alt="">
+          <div class="text-logo text-start " style="vertical-align: middle">
+            <p style="margin-bottom: -6px">Desa Payungsari</p>
+            <p>Kabupaten Karawang</p>
           </div>
         </div>
-
-      </section>
-
+            <div class="card-body">
+                <form action="" class="text-center" method="POST">
+                    @csrf
+                    <div class="input-group">
+                      <input type="text" class="is-invalid" id="username" name="username" required>
+                      <label for="username" class="">Username</label>
+                    </div>
+    
+                    <div class="input-group">
+                      <input type="password" id="password" name="password" required>
+                      <img id="eye-icon" src="{{ asset('assets/img/eye-close.png') }}" alt="">
+                      <label for="password" class="">Password</label> 
+                    </div>                 
+                    <div class="" id="divlogin">
+                      <button class="btn btn-primary py-2" id="blogin">Login</button>
+                    </div>
+                  </form>
+            </div>
     </div>
+
+      </div>
+    </div>
+  </div>
   </main><!-- End #main -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
@@ -128,12 +214,34 @@
   <!-- Template Main JS File -->
   <script src="assets/dashboard/js/main.js"></script>
 
+
+  {{-- script mata password --}}
+  <script>
+    let eyeicon = document.getElementById("eye-icon"); 
+    let password = document.getElementById("password"); 
+
+    eyeicon.onclick = function() {
+      if (password.type == "password") {
+        password.type = "text";
+        eyeicon.src = "{{ asset('assets/img/eye-open.png') }}"
+      }else{
+        password.type = "password";
+        eyeicon.src = "{{ asset('assets/img/eye-close.png') }}"
+      }
+    }
+
+
+
+  </script>
+{{-- ======== --}}
+
   <script>
     $(document).ready(function () {
       $('#blogin').click(function (e) { 
         e.preventDefault();
-        $('#divlogin').html(`<button class="btn btn-primary w-100">Mohon Tunggu... <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span></button>`);
-        $('#formlogin').submit()
+        let form = $(this).closest('form');
+        $('#divlogin').html(` <button class="btn btn-primary py-2" id="blogin">Mohon Tunggu <span class="spinner-border spinner-border-sm" aria-hidden="true"></span></button>`);
+        form.submit()
       });
     });
   </script>
@@ -141,11 +249,28 @@
   <script>
     $(document).ready(function(){
     $("#showpassword").click(function(){
-    $("#password").attr("type", "text");
+    $("#password").attr("type", "text")
+    $('#showpassword').attr("id","hidepassword")
   });
+    // $('#password').focus(function(){
+    //   $('.label').show()
+    // })
 });
   </script>
 
 </body>
 
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+    

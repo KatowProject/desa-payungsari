@@ -234,8 +234,8 @@ Swal.fire({
                 <option>DIPLOMA II</option>
                 <option>DIPLOMA III</option>
                 <option>DIPLOMA IV/STRATA I</option>
-                <option>DIPLOMA IV/STRATA II</option>
-                <option>DIPLOMA IV/STRATA III</option>
+                <option>STRATA II</option>
+                <option>STRATA III</option>
               </select>
               <label for="floatingSelectGrid">Plih Pendidikan Terakhir</label>
             </div>
@@ -287,7 +287,7 @@ Swal.fire({
         </div>
      
         <div class="col-12 mt-3 text-end" id="div-tombol">
-        <button id="tombol-pencarian"><i class="bi bi-person-plus-fill"></i> Add Penduduk</button>
+        <button class="submit-confirm" id="tombol-pencarian"><i class="bi bi-person-plus-fill"></i> Add Penduduk</button>
         </div>
       </form>
     </div>
@@ -296,9 +296,20 @@ Swal.fire({
 </div>
 
 <script>
-  $('#tombol-pencarian').click(function (e) { 
+  $('.submit-confirm').click(function (e) { 
     e.preventDefault();
+    let form = $(this).closest('form');
     Swal.fire({
+    title: 'Tambah Penduduk?',
+    text: "Pastikan Data Sudah Benar!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: 'blue',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Add Penduduk'
+    }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
         title: 'Sedang Menambahkan Penduduk',
         html: 'Mohon Tunggu ...',
         timer: 1500,
@@ -306,9 +317,11 @@ Swal.fire({
         didOpen: () => {
           Swal.showLoading()
         },
-      })
-      $('#form_penduduk').submit()
-  });
-</script>
+      });
+        form.submit();
+    }
+  })
+    });
+  </script>
 
 @endsection
