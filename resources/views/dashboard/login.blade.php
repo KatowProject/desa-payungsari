@@ -44,7 +44,10 @@
   .input-group{
     position: relative;
     margin: 20px 0;   
+    
   }
+
+  
 
   .input-group label{
     position: absolute;
@@ -74,7 +77,6 @@
   .input-group input:focus~label{
     font-size: 14px;
     top: 0;
-    font-weight: bold;
     color: rgb(99, 176, 254);
     background: #fff;
   }
@@ -83,7 +85,6 @@
   .input-group input:valid~label {
     font-size: 14px;
     top: 0;
-    font-weight: 500;
     color: rgb(99, 176, 254);
     background: #fff;
     
@@ -100,7 +101,7 @@
     align-content: center;
     font-family: 'Times New Roman';
     font-size: 20px;
-    font-weight: bold;
+    font-weight: 500;
     margin-bottom: -18px;
   }
 
@@ -125,6 +126,18 @@
   }
 
 
+  @media (max-width:450px){
+    .input-group img{
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    left: 250px;
+    top: 17px;
+    cursor: pointer;
+  }
+
+
+  }
 
 </style>
 

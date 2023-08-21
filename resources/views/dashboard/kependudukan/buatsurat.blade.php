@@ -40,7 +40,7 @@
       <div class="row mb-2">
         <label for="pekerjaan" class="col-sm-2 col-form-label col-form-label-sm">Tempat,Tgl Lahir</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="ttl" value="{{ $p->tempat_lahir.', '.$p->tanggal_lahir }}">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="ttl" value="{{ $p->tempat_lahir.', '.$tanggal_lahir.' '.$bulan_lahir.' '.$tahun_lahir }}">
         </div>
       </div>
       <div class="row mb-2">
@@ -70,7 +70,7 @@
       <div class="row mb-2">
         <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Alamat</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="alamat" value="{{ $p->dusun.' RT'.$p->no_rt.' RW.'.$p->no_rw.' Desa Payungsari Kec.Pedes Kab.Karawang' }}">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="alamat" value="{{ $p->dusun.' RT.'.$p->no_rt.' RW.'.$p->no_rw.' Desa Payungsari Kec.Pedes Kab.Karawang' }}">
         </div>
       </div>
       <div class="row mb-2">

@@ -86,9 +86,59 @@ class PendudukController extends Controller
     public function show(Penduduk $penduduk)
     {
         // dd(new DateTime());
+        $dmy = explode("/",$penduduk->tanggal_lahir);
+        $tanggal_lahir = $dmy[0];
+        $tahun_lahir = $dmy[2];
+        $bulan_lahir = '';
+        switch ($dmy[1]) {
+            case '1':
+                $bulan_lahir = 'Januari';
+                break;
+            case '2':
+                $bulan_lahir = 'Februari';
+                break;
+            case '3':
+                $bulan_lahir = 'Maret';
+                break;
+            case '4':
+                $bulan_lahir = 'April';
+                break;
+            case '5':
+                $bulan_lahir = 'Mei';
+                break;
+            case '6':
+                $bulan_lahir = 'Juni';
+                break;
+            case '7':
+                $bulan_lahir = 'Juli';
+                break;
+            case '8':
+                $bulan_lahir = 'Agustus';
+                break;
+            case '9':
+                $bulan_lahir = 'September';
+                break;
+            case '10':
+                $bulan_lahir = 'Oktober';
+                break;
+            case '11':
+                $bulan_lahir = 'November';
+                break;
+            case '12':
+                $bulan_lahir = 'Desember';
+                break;
+            
+            default:
+                # code...
+                break;
+        }
+
         return view('dashboard.kependudukan.buatsurat', [
             'title' =>  'Pembuatan Surat',
             'p' =>  $penduduk,
+            'tanggal_lahir'   =>  $tanggal_lahir,
+            'tahun_lahir'     =>  $tahun_lahir,
+            'bulan_lahir'=>  $bulan_lahir,
             'pegawai' => Pegawai::all(),
             'tanggal' => Carbon::now()->isoFormat('D MMMM Y')
         ]);

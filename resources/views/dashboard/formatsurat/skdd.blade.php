@@ -179,11 +179,11 @@
       <div class="tanda-tangan" style="box-sizing: border-box; padding-top:30px;text-align:center;">
         <p>Payungsari, {{ $q->tanggal_ttd }}</p>
         @if (request()->an_kades)
-        <p class="anak-kedua">AN.KEPALA DESA PAYUNGSARI</p>
-        <p class="anak-terakhir" style="padding-bottom: 50px;">{{$jabatan}}</p>
+        <p class="anak-kedua">An. KEPALA DESA PAYUNGSARI</p>
+        <p class="anak-terakhir" style="padding-bottom: 70px;">{{$jabatan}}</p>
         <u style="font-weight: 600">{{ $pegawai }}</u>
         @else
-        <p class="anak-kedua" style="padding-bottom: 50px;">KEPALA DESA PAYUNGSARI</p>
+        <p class="anak-kedua" style="padding-bottom: 70px;">KEPALA DESA PAYUNGSARI</p>
         <u style="font-weight: 600">{{ $pegawai }}</u>
         @endif
       </div>
