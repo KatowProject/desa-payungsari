@@ -115,6 +115,16 @@
   }
 
 
+  .input-group img{
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    left: 330px;
+    top: 17px;
+    cursor: pointer;
+  }
+
+
 
 </style>
 
@@ -184,6 +194,7 @@
     
                     <div class="input-group">
                       <input type="password" id="password" name="password" required>
+                      <img id="eye-icon" src="{{ asset('assets/img/eye-close.png') }}" alt="">
                       <label for="password" class="">Password</label> 
                     </div>                 
                     <div class="" id="divlogin">
@@ -202,6 +213,27 @@
 
   <!-- Template Main JS File -->
   <script src="assets/dashboard/js/main.js"></script>
+
+
+  {{-- script mata password --}}
+  <script>
+    let eyeicon = document.getElementById("eye-icon"); 
+    let password = document.getElementById("password"); 
+
+    eyeicon.onclick = function() {
+      if (password.type == "password") {
+        password.type = "text";
+        eyeicon.src = "{{ asset('assets/img/eye-open.png') }}"
+      }else{
+        password.type = "password";
+        eyeicon.src = "{{ asset('assets/img/eye-close.png') }}"
+      }
+    }
+
+
+
+  </script>
+{{-- ======== --}}
 
   <script>
     $(document).ready(function () {
