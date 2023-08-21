@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('surat_masuk', function (Blueprint $table) {
+        Schema::create('surat_keluar', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_urut');
             $table->string('nomor_surat');
             $table->string('tanggal_surat');
-            $table->string('tanggal_diterima');
+            $table->string('tanggal_dikirim');
             $table->string('perihal_surat');
             $table->string('jenis_surat');
-            $table->string('asal_surat');
+            $table->string('tujuan_surat');
             $table->string('pengelola_surat')->nullable();
             $table->string('isi_ringkas')->nullable();
             $table->string('file_surat')->nullable();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('surat_masuk');
+        Schema::dropIfExists('surat_keluar');
     }
 };
