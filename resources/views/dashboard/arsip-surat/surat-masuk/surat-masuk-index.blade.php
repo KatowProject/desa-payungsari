@@ -48,7 +48,7 @@ Swal.fire(
                             </button>
                             <ul class="dropdown-menu">
                               <li>
-                                  <a class="dropdown-item" href="{{ asset('storage/'.$item->file_surat) }}" ><i class="bi bi-eye"></i> Lihat File</a>
+                                  <a class="dropdown-item" target="_blank" href="{{ asset('storage/'.$item->file_surat) }}" ><i class="bi bi-eye"></i> Lihat File</a>
                               </li>
                               <li>
                                   <a class="dropdown-item" href="{{ url('surat-masuk/'.$item->id.'/edit') }}" ><i class="bi bi-pencil"></i> Edit</a>
