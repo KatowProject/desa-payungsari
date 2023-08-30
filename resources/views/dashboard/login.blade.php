@@ -43,8 +43,8 @@
 
   .input-group{
     position: relative;
-    margin: 20px 0;   
-    
+    margin: 20px 0px;   
+    margin-bottom:7px; 
   }
 
   
@@ -106,7 +106,7 @@
   }
 
   .text-logo{
-    display: flex;
+    position: relative;
     flex-direction: column;
   }
 
@@ -116,14 +116,26 @@
   }
 
 
-  .input-group img{
+  .show-password{
+    display: flex;
+    justify-content: start;
+    margin-left:1.3rem;
+    margin-bottom: 2rem;
+    
+  }
+
+  .show-password input{
+    margin-right: 0.5rem;
+  }
+
+  /* .input-group img{
     position: absolute;
     width: 20px;
     height: 15px;
     left: 330px;
     top: 17px;
     cursor: pointer;
-  }
+  } */
 
 
   @media (max-width:450px){
@@ -136,6 +148,7 @@
     cursor: pointer;
   }
 
+  
 
   }
 
@@ -207,9 +220,15 @@
     
                     <div class="input-group">
                       <input type="password" id="password" name="password" required>
-                      <img id="eye-icon" src="{{ asset('assets/img/eye-close.png') }}" alt="">
                       <label for="password" class="">Password</label> 
-                    </div>                 
+                    </div> 
+                    
+                    <div class="show-password">
+                      <input type="checkbox" class="form-check-input" onclick="myFunction()" id="eye-icon">
+                      <label  for="exampleCheck1">Show Password</label>
+                    </div>
+
+                                
                     <div class="" id="divlogin">
                       <button class="btn btn-primary py-2" id="blogin">Login</button>
                     </div>
@@ -230,16 +249,16 @@
 
   {{-- script mata password --}}
   <script>
-    let eyeicon = document.getElementById("eye-icon"); 
     let password = document.getElementById("password"); 
 
-    eyeicon.onclick = function() {
+
+    function myFunction() {
       if (password.type == "password") {
         password.type = "text";
-        eyeicon.src = "{{ asset('assets/img/eye-open.png') }}"
+  
       }else{
         password.type = "password";
-        eyeicon.src = "{{ asset('assets/img/eye-close.png') }}"
+        
       }
     }
 
@@ -259,17 +278,7 @@
     });
   </script>
 
-  <script>
-    $(document).ready(function(){
-    $("#showpassword").click(function(){
-    $("#password").attr("type", "text")
-    $('#showpassword').attr("id","hidepassword")
-  });
-    // $('#password').focus(function(){
-    //   $('.label').show()
-    // })
-});
-  </script>
+  
 
 </body>
 
