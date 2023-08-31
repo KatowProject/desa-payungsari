@@ -2,6 +2,48 @@
 
 @section('content')
 
+<style>
+
+#hero{
+  width: 100%
+}
+
+
+.kotak-text{
+  margin-top: 9vh
+}
+
+  .form-search .form-control{
+    margin-top: 16vh;
+  }
+
+  @media screen and (max-width: 500px){
+    #hero{
+      height: 60vh;
+    }
+
+    .form-search .form-control{
+      width: 100%;
+      margin-top: 6vh;
+      
+    }
+    
+    .carousel-item{
+    }
+    
+    .kotak-text{
+      margin-top: 7vh;
+      width: 100%;
+      
+    }
+  }
+  
+
+</style>
+
+
+
+
 <div class="container">
 
 {{-- Carousel::Begin --}}
@@ -14,13 +56,13 @@
 
         <!-- Slide 1 -->
         <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.jpg)">
-          <div class="carousel-container">
-            <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Menjawab Kebutuhan Informasi <br> <span>Masyarakat Desa Payungsari</span></h2>
+          <div class="container">
+            <div class="kotak-text">
+              <h2 class="animate__animated animate__fadeInDown" style="">Menjawab Kebutuhan Informasi Masyarakat Desa Payungsari</h2>
               <div class="row justify-content-center mt-3" id="div-search">
                 <div class="col-md-12 animate__animated animate__fadeInDown">
                   <form action="{{ url('pencarian') }}" class="form-search">
-                      <input type="search" class="form-control" placeholder="Pencarian" name="q">
+                      <input type="search" class="form-control " placeholder="Pencarian" name="q">
                       <button type="submit" id="tombol-pencarian">Cari Informasi</button>
                   </form>
                 </div>
@@ -33,16 +75,16 @@
       
       <!-- Slide 3 -->
       <div class="carousel-item" style="background-image: url(assets/img/slide/slide-3.jpg)"></div>
-       --}}
-    </div>
+      
+    </div> --}}
     
-    <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+    {{-- <a class="carousel-control-prev"  href="#heroCarousel" role="button" data-bs-slide="prev">
       <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
     </a>
     
-    <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+    <a class="carousel-control-next"  href="#heroCarousel" role="button" data-bs-slide="next">
       <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
-    </a>
+    </a> --}}
 
   </div>
 </section>
