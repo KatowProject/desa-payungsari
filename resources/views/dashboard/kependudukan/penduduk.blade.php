@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-  @media (max-width:450px){
+  @media (max-width:500px){
     .add-desktop {
       display: none
     }

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('pegawai', function (Blueprint $table) {
             $table->id();
-            $table->string('photo')->nullable();
             $table->string('nama_pegawai');
             $table->string('jabatan');
             $table->string('pendidikan')->nullable();
+            $table->string('photo')->nullable();
             $table->timestamps();
         });
     }

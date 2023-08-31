@@ -65,16 +65,27 @@ Swal.fire({
           </div>
 
         <div class="tombol-submit col-sm-12 text-end">
-          <button id="add_pegawai" class="btn btn-primary"><i class="bi bi-person-plus"></i> Tambahkan Pegawai</button>
+          <button class="btn btn-primary submit-confirm"><i class="bi bi-person-plus"></i> Tambahkan Pegawai</button>
         </div>
       </form>
     </div>
 </div>
 
 <script>
-  $('#add_pegawai').click(function (e) { 
+  $('.submit-confirm').click(function (e) { 
     e.preventDefault();
+    let form = $(this).closest('form');
     Swal.fire({
+    title: 'Tambahkan Pegawai?',
+    text: "Pastikan Data Sudah Benar!",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: 'blue',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Add Pegawai'
+    }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
         title: 'Sedang Menambahkan Pegawai',
         html: 'Mohon Tunggu ...',
         timer: 1500,
@@ -82,9 +93,11 @@ Swal.fire({
         didOpen: () => {
           Swal.showLoading()
         },
-      })
-      $('#form_pegawai').submit()
-  });
-</script>
+      });
+        form.submit();
+    }
+  })
+    });
+  </script>
 
 @endsection

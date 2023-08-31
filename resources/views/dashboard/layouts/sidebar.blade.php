@@ -77,7 +77,7 @@
         <a class="nav-link collapsed" href="#" onclick="Swal.fire(
           'Untuk Bantuan',
           'Silahkan Hubungi Admin di nomor Whatsapp 082122154500',
-          'question'
+          'info'
         )">
           <i class="bi bi-question-circle"></i>
           <span>Bantuan</span>

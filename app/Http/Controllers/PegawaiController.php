@@ -6,6 +6,7 @@ use App\Models\Pegawai;
 use App\Http\Requests\StorePegawaiRequest;
 use App\Http\Requests\UpdatePegawaiRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PegawaiController extends Controller
 {
@@ -41,7 +42,11 @@ class PegawaiController extends Controller
             'jabatan'       => 'required',
             'pendidikan'    => 'required',
         ]);
-
+        if($request->file('photo')){
+            $validated['photo'] = $request->file('photo')->storePublicly('photo-pegawai');
+        }else{
+            $validated['photo'] = 'photo-pegawai/user.png';
+        }
         Pegawai::create($validated);
         return back()->with('pegawai_create','berhasil');
     }
@@ -73,11 +78,18 @@ class PegawaiController extends Controller
         $validasi = $request->validate([
             'nama_pegawai'  => 'required',
             'jabatan'       => 'required',
+            'pendidikan'    => 'required',
         ]);
-
+        if($request->file('photo')){
+            if($pegawai->photo != 'photo-pegawai/user.png'){
+                Storage::delete($pegawai->photo);
+            }
+            $validated['photo'] = $request->file('photo')->storePublicly('photo-pegawai');
+        }else{
+            $validated['photo'] = $pegawai->photo;
+        }
         Pegawai::where('id',$pegawai->id)->update($validasi);
-        $request->session()->put('pegawai_update','berhasil');
-        return back();
+        return back()->with('pegawai_update', 'Berhasil');
     }
 
     /**
@@ -86,7 +98,9 @@ class PegawaiController extends Controller
     public function destroy(Request $request,Pegawai $pegawai)
     {
         Pegawai::destroy($pegawai->id);
-        $request->session()->put('pegawai_destroy', 'berhasil');
-        return back();
+        if($pegawai->photo != 'photo-pegawai/user.png'){
+            Storage::delete($pegawai->photo);
+        }
+        return back()->with('pegawai_destroy', 'berhasil');
     }
 }

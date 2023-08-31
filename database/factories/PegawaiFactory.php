@@ -18,7 +18,9 @@ class PegawaiFactory extends Factory
     {
         return [
             'nama_pegawai' => fake()->name(),
-            'jabatan' => fake()->jobTitle()
+            'jabatan' => fake()->jobTitle(),
+            'pendidikan' => 'Diploma III',
+            'photo' => 'photo-pegawai/user.png',
         ];
     }
 }

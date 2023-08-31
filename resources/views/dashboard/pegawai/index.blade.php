@@ -34,7 +34,7 @@ Swal.fire({
           
         <tr>
           <td>{{ $angka++ }}</td>
-          <td><img src="{{ asset('assets/dashboard/img/user.png') }}" alt="" width="100"></td>
+          <td><img src="{{ asset('storage/'.$p->photo) }}" alt="" width="100"></td>
           <td>{{ $p->nama_pegawai }}</td>
           <td>{{ $p->jabatan }}</td>
           <td>{{ $p->pendidikan }}</td>

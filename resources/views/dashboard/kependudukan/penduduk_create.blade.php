@@ -2,7 +2,7 @@
 
 @section('content')
 <style>
-  @media (max-width:450px){
+  @media (max-width:500px){
     .img-desktop {
       display: none
     }
@@ -302,7 +302,7 @@ Swal.fire({
     Swal.fire({
     title: 'Tambah Penduduk?',
     text: "Pastikan Data Sudah Benar!",
-    icon: 'warning',
+    icon: 'question',
     showCancelButton: true,
     confirmButtonColor: 'blue',
     cancelButtonColor: '#d33',

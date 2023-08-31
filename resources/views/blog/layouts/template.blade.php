@@ -154,7 +154,7 @@
         Swal.fire(
         'Pelayanan Online',
         'Fitur Belum Tersedia untuk saat ini',
-        'question'
+        'info'
       )
       });
       $('#pengaduan-masyarakat').click(function (e) { 
@@ -162,7 +162,7 @@
         Swal.fire(
         'Pengaduan Masyarakat',
         'Fitur Belum Tersedia untuk saat ini',
-        'question'
+        'info'
       )
       });
     });
