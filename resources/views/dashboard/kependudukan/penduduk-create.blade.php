@@ -1,71 +1,51 @@
 @extends('dashboard.layouts.template')
 
 @section('content')
-
 <style>
-  .ktp {
-    border-radius: 1;
-  }
-  .kk {
-    margin-right: 3rem;
-    border-radius: 1;
+  @media (max-width:500px){
+    .img-desktop {
+      display: none
+    }
   }
 </style>
 
-@if (Request::session()->has('penduduk_update'))
+@if (Request::session()->has('penduduk_create'))
 <script>
 Swal.fire({
   icon: 'success',
-  title: 'Perubahan Berhasil Di Simpan',
+  title: 'Penduduk Berhasil Ditambahkan',
   showConfirmButton: false,
   timer: 1500
 })
 </script>
-<?php Request::session()->forget('penduduk_update'); ?>
+<?php Request::session()->forget('penduduk_create'); ?>
 @endif
 
 <div class="card">
   <div class="row mt-4 mb-2">
     <div class="col text-start"><a href="{{ url('penduduk') }}" id="tombol-kembali"><i class="bi bi-chevron-double-left"></i> Kembali</a></div>
-    <div class="col text-end" style="margin-right: 20px;">
-    <form action="{{ url('penduduk/'.$penduduk->id) }}" method="POST">
-    @method('delete')
-    @csrf
-    @if ($penduduk->file_ktp)
-    <a href="{{asset('storage/'.$penduduk->file_ktp)}}" target="_blank" class="btn btn-secondary ktp">Lihat KTP</a>
-    @endif
-    @if ($penduduk->file_kk)
-    <a href="{{asset('storage/'.$penduduk->file_kk)}}" target="_blank" class="btn btn-secondary kk">Lihat KK</a>
-    @endif
-      <button class="btn btn-danger delete-confirm"><i class="bi bi-trash-fill"></i></button>
-    </form>
-    </div>
+    <div class="col text-end" style="margin-right: 20px;"><h4>Tambah Penduduk</h4></div>
   </div>
   <hr class="garis">
   <div class="card-body">
-    <form action="{{ url('penduduk/'.$penduduk->id) }}" method="POST" enctype="multipart/form-data" class="myform" id="form_penduduk">
-      @method('put')
+    <form action="{{ url('penduduk') }}" method="POST" enctype="multipart/form-data" class="myform" id="form_penduduk">
       @csrf
       <div class="row">
-        <div class="col-2">
+        <div class="col-md-2 img-desktop">
           <input type="file" name="photo" style="position: absolute; opacity:0; width:140px; height:205px; cursor:pointer;">
-          @if ($penduduk->photo)
-          <img src="{{ asset('storage/'.$penduduk->photo) }}" alt="" width="140px" height="100%" border="1">
-          @else
           <img src="{{ asset('assets/dashboard/img/user.png') }}" alt="" width="140px" height="100%" border="1">
-          @endif
         </div>
-        <div class="col-10">
+        <div class="col-md-10">
           <div class="row g-2 mb-3">
             <div class="col-md">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nik" value="{{ old('nik',$penduduk->nik) }}">
+                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nik" value="{{ old('nik') }}">
                 <label for="floatingInputGrid">Nomor Induk Kependudukan (NIK)</label>
               </div>
             </div>
             <div class="col-md">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nomor_kk" value="{{ old('nomor_kk',$penduduk->nomor_kk) }}">
+                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nomor_kk" value="{{ old('nomor_kk') }}">
                 <label for="floatingInputGrid">Nomor Kartu Keluarga</label>
               </div>
             </div>
@@ -73,17 +53,14 @@ Swal.fire({
           <div class="row g-2 mb-3">
             <div class="col-md">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_lengkap" value="{{ old('nama_lengkap',$penduduk->nama_lengkap) }}">
+                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_lengkap" value="{{ old('nama_lengkap') }}">
                 <label for="floatingInputGrid">Nama Lengkap</label>
               </div>
             </div>
             <div class="col-md">
               <div class="form-floating">
                 <select class="form-select" id="floatingSelectGrid" name="jenis_kelamin">
-                  @if ($penduduk->jenis_kelamin)
-                  <option selected>{{ $penduduk->jenis_kelamin }}</option>
-                  @endif
-                  <option></option>
+                  <option selected></option>
                   <option>Laki-Laki</option>
                   <option>Perempuan</option>
                 </select>
@@ -94,17 +71,14 @@ Swal.fire({
           <div class="row g-2">
             <div class="col-md">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="tempat_lahir" value="{{ old('tempat_lahir',$penduduk->tempat_lahir) }}">
+                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="tempat_lahir" value="{{ old('tempat_lahir') }}">
                 <label for="floatingInputGrid">Tempat Lahir</label>
               </div>
             </div>
             <div class="col-md">
               <div class="form-floating">
                 <select class="form-select" id="floatingSelectGrid" name="tanggal">
-                @if ($tanggal)
-                <option selected>{{ $tanggal }}</option>
-                @endif
-                <option></option>
+                <option selected></option>
                 @for ($i=1;$i<=31;$i++)
                 <option>{{ $i }}</option>
                 @endfor
@@ -114,11 +88,8 @@ Swal.fire({
             </div>
             <div class="col-md">
               <div class="form-floating">
-                <select class="form-select" id="floatingSelectGrid" id="bulan_lahir" name="bulan">
-                  @if ($bulan)
-                  <option value="{{ $bulan }}">{{ $nama_bulan }}</option>
-                  @endif
-                  <option></option>
+                <select class="form-select" id="floatingSelectGrid" name="bulan">
+                  <option selected></option>
                   <option value="01">Januari</option>
                   <option value="02">Februari</option>
                   <option value="03">Maret</option>
@@ -137,7 +108,7 @@ Swal.fire({
             </div>
             <div class="col-md">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="tahun" value="{{ old('tahun',$tahun) }}">
+                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="tahun">
                 <label for="floatingInputGrid">Tahun</label>
               </div>
             </div>
@@ -148,10 +119,7 @@ Swal.fire({
           <div class="col-md">
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" name="agama">
-                @if ($penduduk->agama)
-                <option selected>{{ $penduduk->agama }}</option>
-                @endif
-                <option></option>
+                <option selected></option>
                 <option>ISLAM</option>
                 <option>KRISTEN</option>
                 <option>BUDHA</option>
@@ -165,10 +133,7 @@ Swal.fire({
           <div class="col-md">
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" name="status_perkawinan">
-                @if ($penduduk->status_perkawinan)
-                <option selected>{{ $penduduk->status_perkawinan }}</option>
-                @endif
-                <option></option>
+                <option selected></option>
                 <option>Belum Kawin</option>
                 <option>Sudah Kawin</option>
                 <option>Pernah Kawin</option>
@@ -181,10 +146,7 @@ Swal.fire({
           <div class="col-md">
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" name="pekerjaan">
-                @if ($penduduk->pekerjaan)
-                <option selected>{{ $penduduk->pekerjaan }}</option>
-                @endif
-                <option></option>
+                <option selected></option>
                 <option>Belum/Tidak Bekerja</option>
                 <option>Pelajar/Mahasiswa</option>
                 <option>Buruh Harian Lepas</option>
@@ -202,10 +164,7 @@ Swal.fire({
           <div class="col-md">
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" name="dusun">
-                @if ($penduduk->dusun)
-                <option selected>{{ $penduduk->dusun }}</option>
-                @endif
-                <option></option>
+                <option selected></option>
                 <option>DUSUN PEDES I</option>
                 <option>DUSUN PEDES II</option>
                 <option>DUSUN BAYUR I</option>
@@ -218,10 +177,7 @@ Swal.fire({
           <div class="col-md">
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" name="no_rt">
-                @if ($penduduk->no_rt)
-                <option selected>{{ $penduduk->no_rt }}</option>
-                @endif
-                <option></option>
+                <option selected></option>
                 <option>001</option>
                 <option>002</option>
                 <option>003</option>
@@ -247,10 +203,7 @@ Swal.fire({
           <div class="col-md">
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" name="no_rw">
-                @if ($penduduk->no_rw)
-                <option selected>{{ $penduduk->no_rw }}</option>
-                @endif
-                <option></option>
+                <option selected></option>
                 <option>001</option>
                 <option>002</option>
                 <option>003</option>
@@ -271,10 +224,7 @@ Swal.fire({
           <div class="col-md">
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" name="pendidikan">
-                @if ($penduduk->pendidikan)
-                <option selected>{{ $penduduk->pendidikan }}</option>
-                @endif
-                <option></option>
+                <option selected></option>
                 <option>TIDAK/BELUM SEKOLAH</option>
                 <option>BELUM TAMAT SD/SEDERAJAT</option>
                 <option>TAMAT SD/SEDERAJAT</option>
@@ -284,21 +234,21 @@ Swal.fire({
                 <option>DIPLOMA II</option>
                 <option>DIPLOMA III</option>
                 <option>DIPLOMA IV/STRATA I</option>
-                <option>DIPLOMA IV/STRATA II</option>
-                <option>DIPLOMA IV/STRATA III</option>
+                <option>STRATA II</option>
+                <option>STRATA III</option>
               </select>
               <label for="floatingSelectGrid">Plih Pendidikan Terakhir</label>
             </div>
           </div>
           <div class="col-md">
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_ayah" value="{{ old('nama_ayah',$penduduk->nama_ayah) }}">
+              <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_ayah" value="{{ old('nama_ayah') }}">
               <label for="floatingInputGrid">Nama Ayah</label>
             </div>
           </div>
           <div class="col-md">
             <div class="form-floating">
-              <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_ibu" value="{{ old('nama_ibu',$penduduk->nama_ibu) }}">
+              <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_ibu" value="{{ old('nama_ibu') }}">
               <label for="floatingInputGrid">Nama Ibu</label>
             </div>
           </div>
@@ -308,10 +258,7 @@ Swal.fire({
           <div class="col-md">
             <div class="form-floating">
               <select class="form-select" id="floatingSelectGrid" name="status_dalam_kk">
-                @if ($penduduk->status_dalam_kk)
-                <option selected>{{ $penduduk->status_dalam_kk }}</option>
-                @endif
-                <option></option>
+                <option selected></option>
                 <option>KEPALA KELUARGA</option>
                 <option>SUAMI</option>
                 <option>ISTRI</option>
@@ -340,48 +287,30 @@ Swal.fire({
         </div>
      
         <div class="col-12 mt-3 text-end" id="div-tombol">
-        <button id="tombol-pencarian" class="submit-confirm"><i class="bi bi-sd-card"></i> Simpan Perubahan</button>
+        <button class="submit-confirm" id="tombol-pencarian"><i class="bi bi-person-plus-fill"></i> Add Penduduk</button>
         </div>
       </form>
     </div>
     </div>
   </div>
 </div>
-<script>
-  $('.delete-confirm').click(function (e) { 
-    e.preventDefault();
-    let form = $(this).closest('form');
-    Swal.fire({
-    title: 'Hapus Penduduk?',
-    text: "Penduduk akan di hapus permanen!",
-    icon: 'warning',
-    showCancelButton: true,
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Hapus Penduduk!'
-    }).then((result) => {
-    if (result.isConfirmed) {
-        form.submit();
-    }
-  })
-    });
-  </script>
+
 <script>
   $('.submit-confirm').click(function (e) { 
     e.preventDefault();
     let form = $(this).closest('form');
     Swal.fire({
-    title: 'Simpan Perubahan?',
+    title: 'Tambah Penduduk?',
     text: "Pastikan Data Sudah Benar!",
     icon: 'question',
     showCancelButton: true,
     confirmButtonColor: 'blue',
     cancelButtonColor: '#d33',
-    confirmButtonText: 'Simpan'
+    confirmButtonText: 'Add Penduduk'
     }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire({
-        title: 'Sedang Menyimpan Perubahan',
+        title: 'Sedang Menambahkan Penduduk',
         html: 'Mohon Tunggu ...',
         timer: 1500,
         timerProgressBar: true,

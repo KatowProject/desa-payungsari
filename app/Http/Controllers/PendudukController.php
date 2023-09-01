@@ -28,7 +28,7 @@ class PendudukController extends Controller
      */
     public function create()
     {
-        return view('dashboard.kependudukan.penduduk_create', [
+        return view('dashboard.kependudukan.penduduk-create', [
             'title' =>  'Tambah Penduduk',
         ]);
     }
@@ -66,7 +66,7 @@ class PendudukController extends Controller
         $validasi['tanggal_lahir'] = $tanggal_lahir;
 
         if($request->file('photo')){
-            $validasi['photo'] = $request->file('photo')->storePublicly('photo');
+            $validasi['photo'] = $request->file('photo')->storePublicly('photo-penduduk');
         }
         if($request->file('file_ktp')){
             $validasi['file_ktp'] = $request->file('file_ktp')->storePublicly('file_ktp');
@@ -262,6 +262,7 @@ class PendudukController extends Controller
 
     public function pencarian_penduduk(Request $request)
     {
+        $penduduk ='';
         $q='';
         $key='';
         if($request->dusun != ""){
@@ -294,7 +295,9 @@ class PendudukController extends Controller
             $q=$request->nomor_kk;
             $key='Nomor KK';
         }
-        
+        if($penduduk == ''){
+            return back();
+        }
         return view('dashboard.kependudukan.penduduk_hasil', [
             'title'     =>  'Hasil Pencarian Penduduk',
             'q'     =>  $q,

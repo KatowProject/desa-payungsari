@@ -23,7 +23,11 @@
           
         <tr>
           <td>{{ $angka++ }}</td>
+          @if ($p->photo)
+          <td><img src="{{ asset('storage/'.$p->photo) }}" alt="" width="100"></td>
+          @else
           <td><img src="{{ asset('assets/dashboard/img/user.png') }}" alt="" width="100"></td>
+          @endif
           <td>{{ $p->nik }}</td>
           <td>{{ $p->nama_lengkap }}</td>
           <td>{{ $p->tempat_lahir.','.$p->tanggal_lahir }}</td>

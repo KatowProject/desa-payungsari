@@ -10,7 +10,7 @@
       margin-top: 2rem
     }
   }
-  @media (min-width:450px){
+  @media (min-width:500px){
     .add-mobile {
       display: none
     }
