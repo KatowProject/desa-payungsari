@@ -59,13 +59,73 @@
 .form-search #tombol-pencarian:hover {
   background: #5969f3;
 }
+
+#header{
+  background: rgba(255, 255, 255, 0.626) ;
+}
+
+.footer .judul-footer{
+  font-weight: 600;
+}
+
+.sosmed i{
+  font-size: 25px;
+}
+
+.footer-0{
+  display: flex;
+  justify-content: space-around;
+  height: 30vh;
+  color: white;
+  background-color: #3c3c3c;
+  text-align: start;
+}
+
+.sosmed a{
+  font-size: 10px
+}
+
+
+.footer-1{
+  display: flex;
+  justify-content: space-around;
+  justify-items: center;
+  align-items: center;
+  height: 15vh;
+}
+
+@media (max-width:500px){
+  .footer-1, .footer-0{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1.2rem;
+    text-align: start;
+  }
+
+  .footer-0{
+    height: 55vh;
+    padding-bottom: 30px;
+    gap: 30px;
+    padding-left: 1.2rem
+  }
+
+  .footer-1{
+    height: 20vh;
+  }
+
+
+}
+
+
+
+
   </style>
 </head>
 
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
+  <header id="header" class="d-flex align-items-center ">
     <div class="container d-flex align-items-center">
 
       <div class="logo me-auto judul-logo">
@@ -120,15 +180,65 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer class="footer">
-    <div class="social">
+  <footer class="footer-0 py-5" >
+
+    {{-- <div class="social">
       <div class="row">
         <a href="" class="col-md mb-2"><i class="bi bi-telephone-fill"></i> +62 812 XXXX XXXX</a>
         <a href="" class="col-md mb-2"><i class="bi bi-envelope-at-fill"></i> payungsarides@gmail.com</a>
         <a href="" class="col-md"><i class="bi bi-geo-alt-fill"> Jalan Raya Sungaibuntu No.8 Desa Payungsari <br> Kecamatan Pedes Kab.Karawang - Jawa Barat</i></a>
       </div>
+    </div> --}}
+
+    {{-- <div class="container text-start " style="color: #fff;">
+      <div class="row gap-3">
+        <div class="col order-first" style="margin-left: 5rem">
+          <p class="judul-footer">WEBSITE RESMI</p>
+          <p>Desa Payungsari</p>
+          <p><a href="" class="col-md"><i class="bi bi-geo-alt-fill"> Jalan Raya Sungaibuntu No.8 Desa Payungsari <br> Kecamatan Pedes Kab.Karawang - Jawa Barat</i></a></p>
+        </div>
+        <div class="col" style="margin-left: 5rem">
+          <p class="judul-footer">Kontak Kami</p>
+          <p><a href="" class="col-md mb-3"><i class="bi bi-telephone-fill"></i> +62 812 XXXX XXXX</a></p>
+          <p><a href="" class=""><i class="bi bi-envelope-at-fill">kontiol payungsarides@gmail.com</i> </a></p>
+        </div>
+        <div class="col order-last  sosmed" style="">
+          <p class="judul-footer">Social Media</p>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-facebook px-1 "></i></a>
+          <a href=""><i class="bi bi-twitter"></i></a>
+        </div>
+      </div>
+    </div> --}}
+    <div class="1">
+      <h5 style="font-weight: 700">Website Resmi</h5>
+      <p>Desa Payungssari </p>
     </div>
-  </footer>
+    <div class="2">
+      <h5 style="font-weight: 600" >Kontak Kami</h5>
+      <p><a href="" class="col-md mb-3"><i class="bi bi-telephone-fill"></i> +62 812 XXXX XXXX</a></p>
+      <p><a href="" class=""><i class="bi bi-envelope-at-fill">payungsarides@gmail.com</i> </a></p>
+    </div>
+    <div class="3 sosmed">
+      <h5 class="judul-footer" style="font-weight: 600">Social Media</h5>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-facebook px-1 "></i></a>
+          <a href=""><i class="bi bi-twitter"></i></a>
+    </div>
+
+  </footer> 
+
+  <div class="footer-1 text-start" style="background-color:#0e0c0cdf; color:#fff;">
+    <div class="first"  style="font-size:2rem;"> 
+      <p>PRKP</p>
+    </div>
+    <div class="mid" style="font-size:0.7rem;">
+      <p>© Copyright 2023. All Rights Reserved.</p>
+    </div>
+    <div class="last">
+      <p>Contact Us</p>
+    </div>
+  </div>
   <!-- End Footer --> 
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

@@ -19,19 +19,19 @@
           <th scope="col">Alamat Kantor</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="font-size:12px;">
         <tr>
-          <td><h6>Badan Permusyawaratan Desa</h6> <span class="badge text-bg-secondary">BPD</span></td>
+          <td><h6 class="text-primary">Badan Permusyawaratan Desa</h6> <span class="badge text-bg-secondary bg-primary">BPD</span></td>
           <td>Nama Ketua BPD</td>
           <td>Jalan Raya Sungaibuntu Desa Payungsari,Kecamatan Pedes Kabupaten Karawang</td>
         </tr>
         <tr>
-          <td><h6>Badan Usaha Milik Desa</h6> <span class="badge text-bg-secondary">BUMDES</span></td>
+          <td><h6 class="text-primary">Badan Usaha Milik Desa</h6> <span class="badge text-bg-secondary bg-primary">BUMDES</span></td>
           <td>Nama Ketua BUMDES</td>
           <td>Jalan Raya Sungaibuntu Desa Payungsari,Kecamatan Pedes Kabupaten Karawang</td>
         </tr>
         <tr>
-          <td><h6>Karang Taruna Desa Payungsari</h6> <span class="badge text-bg-secondary">KTD</span></td>
+          <td><h6 class="text-primary">Karang Taruna Desa Payungsari</h6> <span class="badge text-bg-secondary bg-primary">KTD</span></td>
           <td>Nama Ketua Karang Taruna</td>
           <td>Jalan Raya Sungaibuntu Desa Payungsari,Kecamatan Pedes Kabupaten Karawang</td>
         </tr>

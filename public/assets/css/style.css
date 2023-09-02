@@ -1452,6 +1452,7 @@ section {
  .footer{
   padding: 40px 0;
   background-color: #3c3c3c;
+  
 }
 
 .footer .social{
@@ -1461,6 +1462,7 @@ section {
 
 .footer .social a{
   display: inline-block;
+  
   margin: 0 8px;
 }
 

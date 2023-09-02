@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Sipedes | Login</title>
+  <title>Dashboard | Login</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -30,12 +30,14 @@
   
 <style>
   .div-login{
-    margin-top: 30vh;
+    margin-top: 20vh;
+    margin-bottom: 20vh;
   }
 
   @media (max-width:450px){
     .div-login{
-    margin-top: 22vh;
+      margin-top: 20vh;
+    margin-bottom: 20vh;
   }
 
   }
@@ -152,6 +154,11 @@
 
   }
 
+
+  #divlogin a:hover{
+    text-decoration: underline;
+  }
+
 </style>
 
 
@@ -230,7 +237,11 @@
 
                                 
                     <div class="" id="divlogin">
-                      <button class="btn btn-primary py-2" id="blogin">Login</button>
+                      <button class="btn btn-primary py-2 mb-2" id="blogin">Login</button><br>
+                      <a href="">
+                        <i class="bi bi-arrow-left-circle"></i>  
+                        Back
+                      </a>
                     </div>
                   </form>
             </div>
