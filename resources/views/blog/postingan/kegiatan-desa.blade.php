@@ -5,65 +5,81 @@
 <style>
 
 
-.card button{
-  position: absolute;
-  top: 230px;
-  left: 40px;
-  right: 40px;
-  display: none;
+  .child-card{
+    position: absolute;
+    top: 30vh;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    transition: top 1s; 
+    overflow: hidden;
+  }
 
-}
+  button{
+    opacity: 0;
+  }
 
-.card p{
-  position: absolute;
+  .card:hover button{
+    opacity: 1;
+  }
+
+  .card:hover .child-card{
+    top:60%;
+  }
+
+
+  .kosong{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.158)
+  }
+
+  /* .card button{
+    opacity: 0;
+  }
+
+  .card:hover button {
+    opacity: 1;
+    top:190px;
+  } */
+
+
+  /* .card button {
+    position: absolute;
+    top: 230px;
+    left: 40px;
+    right: 40px;
+    opacity: 0;
+    transition: top 1s; 
+  }
   
-  display: none;
-
-}
-
-.card:hover button{
-  display: block;
-}
-
-
-
-.kosong{
-  position: absolute;
-}
-
-.card:hover .kosong{
-  left: 0;
-  background-color: rgba(255, 255, 255, 0.365);
-  right: 0;
-  top: 0;
-  bottom: 0;
-}
-
-.card:hover p{
-  right: 0;
-  top: 120px;
-  bottom: 0;
-  left: 120px;
-  color: rgb(114, 112, 112);
-  font-weight: 600;
-  display: block;
-}
-
-
-
-
-
-
-
-
-
-
-
+  .card p {
+    position: absolute;
+    left: 100px;
+    top: 190px;
+    right: 0;
+    transition: top 1s; 
+  }
   
+  .card:hover p{
+    top:180px;
+  }
+
+  .card:hover button {
+    opacity: 1;
+    
+    top:210px;
+  } */
+
 
 
 
 </style>
+
 
 
 <div class="container">
@@ -79,26 +95,10 @@
       <div class="card">
         <div class="kosong"></div>
         <img src="{{ asset('assets/img/example.jpg') }}"  alt="" >
-        <p>Lorem ipsum dolor sit amet.</p>
-        <button class="btn btn-success">Lihat detail</button>
-      </div>
-    </div>
-
-    <div class="col-4 mb-4">
-      <div class="card">
-        <div class="kosong"></div>
-        <img src="{{ asset('assets/img/example.jpg') }}"  alt="" >
-        <p>Lorem ipsum dolor sit amet.</p>
-        <button class="btn btn-success">Lihat detail</button>
-      </div>
-    </div>
-
-    <div class="col-4 mb-4">
-      <div class="card">
-        <div class="kosong"></div>
-        <img src="{{ asset('assets/img/example.jpg') }}"  alt="" >
-        <p>Lorem ipsum dolor sit amet.</p>
-        <button class="btn btn-success">Lihat detail</button>
+        <div class="child-card container">
+          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+          <button class="btn btn-success">Lihat detail</button>
+        </div>
       </div>
     </div>
     
@@ -106,8 +106,10 @@
       <div class="card">
         <div class="kosong"></div>
         <img src="{{ asset('assets/img/example.jpg') }}"  alt="" >
-        <p>Lorem ipsum dolor sit amet.</p>
-        <button class="btn btn-success">Lihat detail</button>
+        <div class="child-card container">
+          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+          <button class="btn btn-success">Lihat detail</button>
+        </div>
       </div>
     </div>
 
@@ -115,8 +117,10 @@
       <div class="card">
         <div class="kosong"></div>
         <img src="{{ asset('assets/img/example.jpg') }}"  alt="" >
-        <p>Lorem ipsum dolor sit amet.</p>
-        <button class="btn btn-success">Lihat detail</button>
+        <div class="child-card container">
+          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+          <button class="btn btn-success">Lihat detail</button>
+        </div>
       </div>
     </div>
 
@@ -124,22 +128,35 @@
       <div class="card">
         <div class="kosong"></div>
         <img src="{{ asset('assets/img/example.jpg') }}"  alt="" >
-        <p>Lorem ipsum dolor sit amet.</p>
-        <button class="btn btn-success">Lihat detail</button>
+        <div class="child-card container">
+          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+          <button class="btn btn-success">Lihat detail</button>
+        </div>
       </div>
     </div>
 
-  </div>
-
-
-
-    {{-- <div class="card px-lg-5 py-lg-5 text-center">
-      <div class="col-md-12 content-img">
-        {{-- <img src="{{ asset('assets/img/search.png') }}"  alt="" >
-        <p>asdasdasd</p> 
-      
+    <div class="col-4 mb-4">
+      <div class="card">
+        <div class="kosong"></div>
+        <img src="{{ asset('assets/img/example.jpg') }}"  alt="" >
+        <div class="child-card container">
+          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+          <button class="btn btn-success">Lihat detail</button>
+        </div>
       </div>
-    </div> --}}
+    </div>
+
+    <div class="col-4 mb-4">
+      <div class="card">
+        <div class="kosong"></div>
+        <img src="{{ asset('assets/img/example.jpg') }}"  alt="" >
+        <div class="child-card container">
+          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+          <button class="btn btn-success">Lihat detail</button>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
 
