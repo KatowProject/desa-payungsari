@@ -229,15 +229,15 @@
   </footer> 
 
   <div class="footer-1 text-start" style="background-color:#0e0c0cdf; color:#fff;">
-    <div class="first"  style="font-size:2rem;"> 
+    {{-- <div class="first"  style="font-size:2rem;"> 
       <p>PRKP</p>
-    </div>
+    </div> --}}
     <div class="mid" style="font-size:0.7rem;">
       <p>© Copyright 2023. All Rights Reserved.</p>
     </div>
-    <div class="last">
+    {{-- <div class="last">
       <p>Contact Us</p>
-    </div>
+    </div> --}}
   </div>
   <!-- End Footer --> 
 
