@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pegawai;
 use Illuminate\Http\Request;
 use PDF;
 
@@ -12,6 +13,7 @@ class SuratController extends Controller
     {
         return view('dashboard.buat_surat_manual', [
             'title'     =>  'Pembuatan Surat',
+            'pegawai' => Pegawai::all()
 
         ]);
     }

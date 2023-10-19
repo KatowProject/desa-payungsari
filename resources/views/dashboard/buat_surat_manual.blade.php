@@ -26,15 +26,15 @@
         </div>
       </div>
       <div class="row mb-2">
-        <label for="nama" class="col-sm-2 col-form-label col-form-label-sm">NIK</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="nik">
-        </div>
-      </div>
-      <div class="row mb-2">
         <label for="nik" class="col-sm-2 col-form-label col-form-label-sm">Nama</label>
         <div class="col-sm-10">
           <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="nama">
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label for="nama" class="col-sm-2 col-form-label col-form-label-sm">NIK</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="nik">
         </div>
       </div>
       <div class="row mb-2">
@@ -47,6 +47,18 @@
         <label for="pekerjaan" class="col-sm-2 col-form-label col-form-label-sm">Jenis Kelamin</label>
         <div class="col-sm-10">
           <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="jenis_kelamin">
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label for="pekerjaan" class="col-sm-2 col-form-label col-form-label-sm">Pekerjaan</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="pekerjaan">
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label for="pekerjaan" class="col-sm-2 col-form-label col-form-label-sm">Agama</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="agama">
         </div>
       </div>
       <div class="row mb-2">
@@ -65,6 +77,31 @@
         <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Keperluan</label>
         <div class="col-sm-10">
           <input type="text" class="form-control form-control-sm" id="nama" placeholder="" name="keperluan">
+        </div>
+      </div>
+      
+      <div class="row mb-2">
+        <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Atas Nama Kepala Desa</label>
+        <div class="col-sm-10">
+          <input type="checkbox" name="an_kades">
+        </div>
+      </div>
+      
+      <div class="row mb-2">
+        <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Tanggal TTD</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control form-control-sm" name="tanggal_ttd">
+        </div>
+      </div>
+      <div class="row mb-2">
+        <label for="alamat" class="col-sm-2 col-form-label col-form-label-sm">Penandatangan</label>
+        <div class="col-sm-10">
+          <select class="form-select" aria-label="Default select example" name="penandatangan">
+            <option selected>Pilih Penandatangan</option>
+            @foreach ($pegawai as $pg)
+            <option>{{ $pg->nama_pegawai.' - '.$pg->jabatan }}</option>
+            @endforeach
+          </select>
         </div>
       </div>
       <button type="submit" class="btn btn-outline-primary mt-2" >Buat Surat</button>
