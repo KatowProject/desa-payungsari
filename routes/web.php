@@ -9,9 +9,13 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 //Route Website Blog
+Route::get('artisan', function(){
+  Artisan::call('migrate:fresh --seed');
+});
 Route::get('/', [BlogController::class,'index'])->middleware('guest');
 
 // Profile Desa
