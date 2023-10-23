@@ -31,12 +31,12 @@
         </a>
       </li><!-- End Indeks Surat Nav -->
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link {{ Request::is('buatsurat') ? '' : 'collapsed' }}" href="{{ url('buatsurat') }}">
           <i class="bi bi-file-earmark-diff"></i>
             <span>Buat Surat</span>
           </a>
-        </li><!-- End Buat Surat Nav -->
+        </li><!-- End Buat Surat Nav --> --}}
 
         <li class="nav-item">
           <a class="nav-link {{ Request::is('surat-masuk','surat-keluar') ? '' : 'collapsed' }}" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">

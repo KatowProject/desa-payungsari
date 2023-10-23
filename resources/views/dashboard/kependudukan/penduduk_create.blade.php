@@ -39,13 +39,13 @@ Swal.fire({
           <div class="row g-2 mb-3">
             <div class="col-md">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nik" value="{{ old('nik') }}">
+                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nik" value="{{ old('nik') }}" autocomplete="off">
                 <label for="floatingInputGrid">Nomor Induk Kependudukan (NIK)</label>
               </div>
             </div>
             <div class="col-md">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nomor_kk" value="{{ old('nomor_kk') }}">
+                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nomor_kk" value="{{ old('nomor_kk') }}" autocomplete="off">
                 <label for="floatingInputGrid">Nomor Kartu Keluarga</label>
               </div>
             </div>
@@ -53,7 +53,7 @@ Swal.fire({
           <div class="row g-2 mb-3">
             <div class="col-md">
               <div class="form-floating">
-                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_lengkap" value="{{ old('nama_lengkap') }}">
+                <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_lengkap" value="{{ old('nama_lengkap') }}" autocomplete="off">
                 <label for="floatingInputGrid">Nama Lengkap</label>
               </div>
             </div>

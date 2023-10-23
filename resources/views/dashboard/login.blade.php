@@ -221,7 +221,7 @@
                 <form action="" class="text-center" method="POST">
                     @csrf
                     <div class="input-group">
-                      <input type="text" class="is-invalid" id="username" name="username" required>
+                      <input type="text" class="is-invalid" id="username" name="username" autocomplete="off" required>
                       <label for="username" class="">Username</label>
                     </div>
     

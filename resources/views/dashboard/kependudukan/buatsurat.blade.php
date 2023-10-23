@@ -7,8 +7,8 @@
     <select class="form-select mt-4" aria-label="Default select example" id="pilihansurat">
       <option value="0" selected>Pilih Jenis Surat</option>
       <option value="1">Surat Keterangan Desa Domisili</option>
-      <option value="2">Surat Keterangan Usaha/Dagang</option>
-      <option value="3">Surat Keterangan Tidak Mampu</option>
+      {{-- <option value="2">Surat Keterangan Usaha/Dagang</option>
+      <option value="3">Surat Keterangan Tidak Mampu</option> --}}
     </select>
   </div>
 </div>

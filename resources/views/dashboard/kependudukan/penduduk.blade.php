@@ -43,13 +43,13 @@ Swal.fire({
       <div class="row g-2 mb-3">
         <div class="col-md">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nik" maxlength="16">
+            <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nik" maxlength="16" autocomplete="off">
             <label for="floatingInputGrid">Nomor Induk Kependudukan (NIK)</label>
           </div>
         </div>
         <div class="col-md">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nomor_kk" maxlength="16">
+            <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nomor_kk" maxlength="16" autocomplete="off">
             <label for="floatingInputGrid">Nomor Kartu Keluarga (KK)</label>
           </div>
         </div>
@@ -57,7 +57,7 @@ Swal.fire({
       <div class="row g-2 mb-3">
         <div class="col-md">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_lengkap">
+            <input type="text" class="form-control" id="floatingInputGrid" placeholder="" name="nama_lengkap" autocomplete="off">
             <label for="floatingInputGrid">Nama Lengkap</label>
           </div>
         </div>
@@ -66,7 +66,7 @@ Swal.fire({
       <div class="row g-2 mb-2">
         <div class="col-md">
           <div class="form-floating">
-            <select class="form-select" id="floatingSelectGrid" name="dusun">
+            <select class="form-select" id="floatingSelectGrid" name="dusun" autocomplete="off">
               <option selected></option>
               <option>DUSUN PEDES I</option>
               <option>DUSUN PEDES II</option>
