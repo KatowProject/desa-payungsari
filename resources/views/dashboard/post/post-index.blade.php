@@ -31,7 +31,7 @@ Swal.fire({
     <tbody>
       @foreach ($posts as $post)
         <tr>
-          <td><img src="{{ asset('storage/'.$post->image) }}" alt="" width="200"></td>
+          <td><img src="{{ asset('storage/postingan/'.$post->image) }}" alt="" width="200"></td>
           <td>{{ $post->title }}</td>
           <td>{{ $post->excerpt }}</td>
           <td>

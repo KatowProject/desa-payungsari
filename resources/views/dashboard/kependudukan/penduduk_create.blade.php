@@ -322,6 +322,6 @@ Swal.fire({
     }
   })
     });
-  </script>
+</script>
 
 @endsection

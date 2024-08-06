@@ -42,7 +42,7 @@
       <h2>{{ $post->title }}</h2>
       <p><small>{{ $post->created_at->isoFormat('dddd, D MMMM Y') }} | Oleh Admin</small></p>
 
-      <img src="{{ asset('storage/'.$post->image) }}" class="img-fluid">
+      <img src="{{ asset('storage/app/postingan'.$post->image) }}" class="img-fluid">
       
       <article class="my-3 fs-5">
         {!! $post->body !!}

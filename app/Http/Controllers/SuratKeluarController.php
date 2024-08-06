@@ -95,7 +95,7 @@ class SuratKeluarController extends Controller
         if ($request->file('file_surat')) {
             Storage::delete($SuratKeluar->file_surat);
             $validated['file_surat'] = $request->file('file_surat')->storePublicly('surat_Keluar');
-            }else{
+            }else{ 
             $validated['file_surat'] = $SuratKeluar->file_surat;
             }
         SuratKeluar::where('id',$SuratKeluar->id)

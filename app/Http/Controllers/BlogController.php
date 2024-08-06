@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pegawai;
 use App\Models\Post;
+use App\Models\Pegawai;
+use App\Models\Pengaduan;
+use App\Models\Tentang;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -94,6 +97,27 @@ class BlogController extends Controller
             'title' => 'Kegiatan Desa Payungsari',
         ]);
     }
+    public function tentang()
+    {
+        return view('blog.profile-desa.tentang',[
+            'title' => 'Kegiatan Desa Payungsari',
+        ]);
+    }
+
+    public function tentang_blog(Request $request){
+        $validated = $request->validate([
+            'nama' => 'required',
+        ]);
+        Tentang::create($validated);
+        return redirect('/tentang');
+    }
+
+
+    
+
+
+    
+    
 
 
 }

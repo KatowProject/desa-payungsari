@@ -57,12 +57,19 @@
         </li><!-- End Kearsipan Surat -->
 
 
-      <li class="nav-item">
-        <a class="nav-link {{ Request::is('post') ? '' : 'collapsed' }}" href="{{ url('post') }}">
-          <i class="bi bi-file-earmark-diff-fill"></i>
-            <span>Postingan</span>
+        <li class="nav-item">
+          <a class="nav-link {{ Request::is('post') ? '' : 'collapsed' }}" href="{{ url('post') }}">
+            <i class="bi bi-file-earmark-diff-fill"></i>
+              <span>Postingan</span>
           </a>
-        </li><!-- End Buat Surat Nav -->
+        </li>
+
+      <li class="nav-item">
+        <a class="nav-link {{ Request::is('kegiatan-kades') ? '' : 'collapsed' }}" href="{{ url('kegiatan-kades') }}">
+          <i class="bi bi-file-earmark-diff-fill"></i>
+            <span>Kegiatan Kades</span>
+          </a>
+      </li><!-- End Buat Surat Nav -->
 
       <li class="nav-heading">More</li>
 

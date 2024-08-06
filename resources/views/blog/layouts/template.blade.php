@@ -147,6 +147,7 @@
               <li><a class="{{ Request::is('perangkat-desa') ? 'active' : '' }}" href="{{ url('perangkat-desa') }}">Perangkat Desa</a></li>
               <li><a class="{{ Request::is('struktur-pemerintah-desa') ? 'active' : '' }}" href="{{ url('struktur-pemerintah-desa') }}">Struktur Perangkat Desa</a></li>
               <li><a class="{{ Request::is('lembaga-desa') ? 'active' : '' }}" href="{{ url('lembaga-desa') }}">Lembaga Desa</a></li>
+              <li><a class="{{ Request::is('tentang') ? 'active' : '' }}" href="{{ url('tentang') }}">Tentang</a></li>
             </ul>
           </li>
 
@@ -160,8 +161,8 @@
 
           <li class="dropdown"><a href="#"><span>Layanan Publik</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a id="pelayanan-online" class="{{ Request::is('') ? 'active' : '' }}" href="{{ url('#') }}">Pelayanan Online</a></li>
-              <li><a id="pengaduan-masyarakat" class="{{ Request::is('') ? 'active' : '' }}" href="{{ url('#') }}">Pengaduan Masyarakat</a></li>
+              <li><a id="kegiatan-kades" class="{{ Request::is('') ? 'active' : '' }}" href="{{ url('/kegiatan-kades') }}">Kegiatan Kepala Desa</a></li>
+              <li><a id="pengaduan-masyarakat" class="{{ Request::is('') ? 'active' : '' }}" href="{{ url('/pengaduan-masyarakat') }}">Pengaduan Masyarakat</a></li>
             </ul>
           </li>
 
@@ -267,14 +268,7 @@
         'info'
       )
       });
-      $('#pengaduan-masyarakat').click(function (e) { 
-        e.preventDefault();
-        Swal.fire(
-        'Pengaduan Masyarakat',
-        'Fitur Belum Tersedia untuk saat ini',
-        'info'
-      )
-      });
+      
     });
   </script>
 

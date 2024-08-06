@@ -3,12 +3,15 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KegiatanKadesController;
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PendudukController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\SuratMasukController;
 use App\Http\Controllers\SuratKeluarController;
+use App\Models\KegiatanKades;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -23,12 +26,20 @@ Route::get('tentang-desa', [BlogController::class,'tentang_desa'])->middleware('
 Route::get('perangkat-desa', [BlogController::class,'perangkat_desa'])->middleware('guest');
 Route::get('struktur-pemerintah-desa', [BlogController::class,'struktur_organisasi'])->middleware('guest');
 Route::get('lembaga-desa', [BlogController::class,'lembaga_desa'])->middleware('guest');
+Route::get('tentang', [BlogController::class,'tentang'])->middleware('guest');
+Route::post('tentang_blog', [BlogController::class,'tentang_blog'])->middleware('guest');
+
+// Layanan Public
+Route::get('pengaduan-masyarakat', [LayananController::class,'pengaduan_masyarakat'])->middleware('guest');
+Route::post('pengaduan-store', [LayananController::class,'pengaduan_store'])->middleware('guest');
+
 
 // Postingan
 Route::get('pencarian', [BlogController::class,'pencarian'])->middleware('guest');
 Route::get('postingan/{post:slug}', [BlogController::class,'postingan_detail'])->middleware('guest');
 Route::get('berita-desa', [BlogController::class,'berita_desa'])->middleware('guest');
 Route::get('kegiatan-desa', [BlogController::class,'kegiatan_desa'])->middleware('guest');
+
 
 //Route Postingan Admin
 Route::resource('post',PostController::class)->middleware('auth');
@@ -59,3 +70,9 @@ Route::get('buatsurat',[SuratController::class, 'buatsurat'])->middleware('auth'
 Route::post('buatsurat/skdd', [SuratController::class, 'skdd'])->middleware('auth');
 Route::post('buatsurat/sku', [SuratController::class, 'sku'])->middleware('auth');
 Route::post('buatsurat/coba', [SuratController::class, 'coba'])->middleware('auth');
+Route::post('buatsurat/coba', [SuratController::class, 'coba'])->middleware('auth');
+
+// Kegitan Kades
+Route::get('kegiatan-kades', [KegiatanKadesController::class,'kegiatan_kades'])->middleware('auth');
+Route::get('create-kegiatan-kades', [KegiatanKadesController::class,'create_kegiatan_kades'])->middleware('auth');
+Route::post('kades', [KegiatanKadesController::class,'kades_store'])->middleware('auth');

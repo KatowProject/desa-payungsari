@@ -94,7 +94,7 @@
         </div>
       </div>
       <h1 class="judulsurat border-bottom">SURAT KETERANGAN DOMISILI</h1>
-      <p class="nomorsurat">Nomor : {{ $q->nomor_surat }}</p>
+      <p class="nomorsurat">Nomor : form{{ $q->nomor_surat }}</p>
       
       <table style="margin-top: 1rem; padding: 50px auto;">
         <td> <pre style="text-align: justify">Yang bertanda tangan dibawah ini Kepala Desa Payungsari Kec.Pedes Kab.Karawang menerangkan bahwa :</pre></td>
