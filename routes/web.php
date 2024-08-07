@@ -7,6 +7,7 @@ use App\Http\Controllers\KegiatanKadesController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\PendudukController;
+use App\Http\Controllers\PengaduanMasrayakatController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SuratController;
 use App\Http\Controllers\SuratMasukController;
@@ -30,8 +31,8 @@ Route::get('tentang', [BlogController::class,'tentang'])->middleware('guest');
 Route::post('tentang_blog', [BlogController::class,'tentang_blog'])->middleware('guest');
 
 // Layanan Public
-Route::get('pengaduan-masyarakat', [LayananController::class,'pengaduan_masyarakat'])->middleware('guest');
-Route::post('pengaduan-store', [LayananController::class,'pengaduan_store'])->middleware('guest');
+// Route::get('pengaduan-masyarakat', [LayananController::class,'pengaduan_masyarakat'])->middleware('guest');
+// Route::post('pengaduan-store', [LayananController::class,'pengaduan_store'])->middleware('guest');
 
 
 // Postingan
@@ -73,6 +74,21 @@ Route::post('buatsurat/coba', [SuratController::class, 'coba'])->middleware('aut
 Route::post('buatsurat/coba', [SuratController::class, 'coba'])->middleware('auth');
 
 // Kegitan Kades
-Route::get('kegiatan-kades', [KegiatanKadesController::class,'kegiatan_kades'])->middleware('auth');
+Route::get('kegiatan-kades', [KegiatanKadesController::class, 'kegiatan_kades'])->middleware('auth')->name('kegiatan-kades');
 Route::get('create-kegiatan-kades', [KegiatanKadesController::class,'create_kegiatan_kades'])->middleware('auth');
+Route::get('edit-kegiatan-kades/{id}', [KegiatanKadesController::class, 'edit_view_kegiatan_kades'])->middleware('auth');
+Route::get('detail-kegiatan-kades/{id}', [KegiatanKadesController::class, 'detail_kegiatan_kades'])->middleware('auth');
 Route::post('kades', [KegiatanKadesController::class,'kades_store'])->middleware('auth');
+Route::put('kades/{id}', [KegiatanKadesController::class, 'kades_update'])->middleware('auth');
+Route::delete('kades/{id}', [KegiatanKadesController::class, 'kades_delete'])->middleware('auth');
+
+//
+Route::get('pengaduan', [PengaduanMasrayakatController::class, 'pengaduan_masyarakat_public'])->middleware('guest');
+// Pengaduan Masrayakat
+Route::get('pengaduan-masyarakat', [PengaduanMasrayakatController::class, 'pengaduan_masyarakat'])->middleware('auth');
+Route::get('pengaduan-masyarakat/create', [PengaduanMasrayakatController::class, 'create_pengaduan_masyarakat'])->middleware('auth');
+Route::post('pengaduan-masyarakat/create', [PengaduanMasrayakatController::class, 'pengaduan_store'])->middleware('auth');
+Route::get('pengaduan-masyarakat/{id}/detail', [PengaduanMasrayakatController::class, 'detail_pengaduan_masyarakat'])->middleware('auth');
+Route::get('pengaduan-masyarakat/{id}/edit', [PengaduanMasrayakatController::class, 'edit_pengaduan_masyarakat'])->middleware('auth');
+Route::put('pengaduan-masyarakat/{id}/edit', [PengaduanMasrayakatController::class, 'update_pengaduan_masyarakat'])->middleware('auth');
+Route::delete('pengaduan-masyarakat/{id}', [PengaduanMasrayakatController::class, 'delete_pengaduan_masyarakat'])->middleware('auth');

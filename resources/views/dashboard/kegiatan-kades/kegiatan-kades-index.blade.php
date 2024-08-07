@@ -61,12 +61,24 @@
 
 <a href="{{ url('create-kegiatan-kades') }}" class="btn btn-danger mb-3"><i class="bi bi-file-earmark-plus"></i> Tambah Surat Masuk</a>
 
+@if(Session::has('success'))
+<div class="alert alert-success" role="alert">
+  {{ Session::get('success') }}
+</div>
+@endif
+
+@if(Session::has('error'))
+<div class="alert alert-danger" role="alert">
+  {{ Session::get('error') }}
+</div>
+@endif
+
 <div class="card">
   <h2 class="card-title px-4">
-    arsip Surat masuk
+    Arsip Surat masuk
   </h2>
   <div class="card-body">
-    <div class="table-responsive-md" style="overflow-y: visible;!important">
+    <div class="table-responsive-md" style="overflow-y: visible !important;">
       <table class="table" style="vertical-align: middle ">
         <thead>
           <th>NO</th>
@@ -84,7 +96,11 @@
             <td>{{ $data->judul }}</td>
             <td>{{ $data->isi }}</td>
             <td>{{ $data->keterangan }}</td>
-            <td><img src="{{ asset('storage/' . $photos[$i]->photo_path) }}" alt="Foto Kegiatan" style="width: 100px; height: auto;"></td>
+            <td>
+              @foreach ($data->photos as $photo)
+              <img src="{{ asset('storage/' . $photo->photo_path) }}" alt="Foto Kegiatan" style="width: 100px; height: auto;">
+              @endforeach
+            </td>
             <td>
               <div class="btn-group">
                 <button type="button" class="btn btn-primary btn-sm dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
@@ -92,15 +108,16 @@
                 </button>
                 <ul class="dropdown-menu">
                   <li>
-                    <a class="dropdown-item" target="_blank" href="{{ asset('storage/' . $photos[$i]->photo_path) }}"><i class="bi bi-eye"></i> Lihat File</a>
+                    <a class="dropdown-item" href="{{ asset('detail-kegiatan-kades/' .$data->id)}}"><i class="bi bi-eye"></i> Detail</a>
                   </li>
                   <li>
-                    <a class="dropdown-item" href=""><i class="bi bi-pencil"></i> Edit</a>
+                    <a class="dropdown-item" href="{{ asset('edit-kegiatan-kades/' .$data->id)}}"><i class="bi bi-pencil"></i> Edit</a>
                   </li>
                   <li>
-                    <form action="" method="POST">
+                    <form action="{{ asset('kades/' . $data->id ) }}" method="POST">
+                      @method('DELETE')
                       @csrf
-                      <button class="dropdown-item delete-confirm"><i class="bi bi-trash"></i> Hapus</button>
+                      <button class="dropdown-item delete-confirm" type="submit"><i class="bi bi-trash"></i> Hapus</button>
                     </form>
                   </li>
                 </ul>
@@ -108,7 +125,6 @@
             </td>
           </tr>
           @endforeach
-
         </tbody>
       </table>
     </div>

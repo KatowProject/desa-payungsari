@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('judul');
             $table->string('isi');
             $table->string('keterangan');
-            $table->string('foto_pengaduan');
+            $table->text('foto_pengaduan');
             $table->timestamps();
         });
     }
