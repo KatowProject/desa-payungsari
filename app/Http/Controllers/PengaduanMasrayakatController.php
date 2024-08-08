@@ -124,8 +124,18 @@ class PengaduanMasrayakatController extends Controller
     public function pengaduan_masyarakat_public()
     {
         $pengaduan = Pengaduan::all();
+
         return view('blog.postingan.pengaduan-masyarakat', compact('pengaduan'), [
             'title' => 'Pengaduan Masyarakat',
+        ]);
+    }
+
+    public function detail_pengaduan_masyarakat_public($id)
+    {
+        $pengaduan = Pengaduan::find($id);
+
+        return view('blog.postingan.detail-pengaduan-masyarakat', compact('pengaduan'), [
+            'title' => 'Detail Pengaduan Masyarakat',
         ]);
     }
 }

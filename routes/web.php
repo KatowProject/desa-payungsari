@@ -84,6 +84,8 @@ Route::delete('kades/{id}', [KegiatanKadesController::class, 'kades_delete'])->m
 
 //
 Route::get('pengaduan', [PengaduanMasrayakatController::class, 'pengaduan_masyarakat_public'])->middleware('guest');
+Route::get('pengaduan/detail/{id}', [PengaduanMasrayakatController::class, 'detail_pengaduan_masyarakat_public'])->middleware('guest');
+
 // Pengaduan Masrayakat
 Route::get('pengaduan-masyarakat', [PengaduanMasrayakatController::class, 'pengaduan_masyarakat'])->middleware('auth');
 Route::get('pengaduan-masyarakat/create', [PengaduanMasrayakatController::class, 'create_pengaduan_masyarakat'])->middleware('auth');

@@ -72,9 +72,20 @@
     
     top:210px;
   } */
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: cover;
+  }
 </style>
-
-
 
 <div class="container">
   <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
@@ -85,72 +96,24 @@
   </nav>
 
   <div class="row">
+    @foreach ($pengaduan as $i => $data)
+    @php
+    $imgs = json_decode($data->foto_pengaduan, true);
+
+    $randomImg = array_rand($imgs);
+    $img = $imgs[$randomImg];
+    @endphp
     <div class="col-4 mb-4">
-      <div class="card">
+      <div class="card" style="height: 300px;">
         <div class="kosong"></div>
-        <img src="{{ asset('assets/img/example.jpg') }}" alt="">
+        <img src="{{ asset('storage/' . $img) }}" class="img-fluid" alt="">
         <div class="child-card container">
-          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-          <button class="btn btn-success">Lihat detail</button>
+          <p style="color: white; font-weight:bold; ">{{ $data->judul }}</p>
+          <a class="btn btn-success" href="{{ url('pengaduan/detail/' . $data->id) }}">Lihat detail</a>
         </div>
       </div>
     </div>
-
-    <div class="col-4 mb-4">
-      <div class="card">
-        <div class="kosong"></div>
-        <img src="{{ asset('assets/img/example.jpg') }}" alt="">
-        <div class="child-card container">
-          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-          <button class="btn btn-success">Lihat detail</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4 mb-4">
-      <div class="card">
-        <div class="kosong"></div>
-        <img src="{{ asset('assets/img/example.jpg') }}" alt="">
-        <div class="child-card container">
-          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-          <button class="btn btn-success">Lihat detail</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4 mb-4">
-      <div class="card">
-        <div class="kosong"></div>
-        <img src="{{ asset('assets/img/example.jpg') }}" alt="">
-        <div class="child-card container">
-          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-          <button class="btn btn-success">Lihat detail</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4 mb-4">
-      <div class="card">
-        <div class="kosong"></div>
-        <img src="{{ asset('assets/img/example.jpg') }}" alt="">
-        <div class="child-card container">
-          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-          <button class="btn btn-success">Lihat detail</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-4 mb-4">
-      <div class="card">
-        <div class="kosong"></div>
-        <img src="{{ asset('assets/img/example.jpg') }}" alt="">
-        <div class="child-card container">
-          <p style="color: white; font-weight:bold; ">Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
-          <button class="btn btn-success">Lihat detail</button>
-        </div>
-      </div>
-    </div>
-
+    @endforeach
   </div>
 </div>
 
